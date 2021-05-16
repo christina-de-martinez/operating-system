@@ -68,3 +68,18 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Christina's TODOs
+Internet browser should have frequently-visited or bookmarked sites including LinkedIn, Instagram, Twitter
+Have the Contacts app open to my entry with contact info, and add some nonsensical ones if you want. This could be a good way to present the Resume
+Or I could present the resume in a Word-like mini app
+Pop-up about accepting cookies only it's like real cookies
+Terminal?
+About section that lists how it's made 
+Calculator
+Timer / clock app 
+Weather app 
+Messenger (Apple style or vintage style?) - with cheeky messages about why I'd be a great hire
+Maps with pins of some of my fav places 
+"Buy me a coffee" link
+Goodreads clone
