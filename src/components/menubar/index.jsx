@@ -1,5 +1,6 @@
 import React from 'react';
 import { Bar, MenuLeft, MenuRight, MenuIcon, DateTimeText } from './styled';
+import MenuDropdown from '../menudropdown/index'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLemon, faWifi, faGlobeEurope } from '@fortawesome/free-solid-svg-icons'
@@ -13,34 +14,51 @@ var getCurrentTime = () => {
     let now = new Date();
     var hours = now.getHours();
     var minutes = now.getMinutes();
-    var time = hours + ':' + minutes;
+    var minutesString = minutes.toString().padStart(2,'0');
+    var time = hours + ':' + minutesString;
     return time;
 }
+var toggleDropdown = () => {
+    console.log(this);
+    // this.setState({
+    //     dropdownIsOpen: !this.state.dropdownIsOpen,
+    // });
+}
 
-function Menubar() {
-    function handleIconClick() {
-        alert('do something');
+class Menubar extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            dropdownIsOpen: false
+        }
+        // this.toggleDropdown = this.toggleDropdown.bind(this);
+        
     }
-
-    return (
-        <Bar>
-            <MenuLeft>
-                <MenuIcon onClick={() => handleIconClick()}>
-                    <FontAwesomeIcon icon={faLemon} />
-                </MenuIcon>
-            </MenuLeft>
-            <MenuRight>
-                <MenuIcon onClick={() => handleIconClick()}>
-                    <FontAwesomeIcon icon={faGlobeEurope} />
-                </MenuIcon>
-                <MenuIcon>
-                    <FontAwesomeIcon icon={faWifi} />
-                </MenuIcon>
-                <DateTimeText>{getCurrentDate()}</DateTimeText>
-                <DateTimeText>{getCurrentTime()}</DateTimeText>
-            </MenuRight>
-        </Bar>
-    )
+    
+    render() {
+        return (
+            <>
+            <Bar>
+                <MenuLeft>
+                    <MenuIcon onClick={toggleDropdown()}>
+                        <FontAwesomeIcon icon={faLemon} />
+                    </MenuIcon>
+                </MenuLeft>
+                <MenuRight>
+                    {/* <MenuIcon onClick={() => toggleDropdown()}>
+                        <FontAwesomeIcon icon={faGlobeEurope} />
+                    </MenuIcon> */}
+                    <MenuIcon>
+                        <FontAwesomeIcon icon={faWifi} />
+                    </MenuIcon>
+                    <DateTimeText>{getCurrentDate()}</DateTimeText>
+                    <DateTimeText>{getCurrentTime()}</DateTimeText>
+                </MenuRight>
+            </Bar>
+            {this.state.dropdownIsOpen && <MenuDropdown></MenuDropdown> }
+            </>
+        )
+    }
 }
 
 export default Menubar;

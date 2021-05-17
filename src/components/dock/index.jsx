@@ -4,7 +4,6 @@ import { faGithubAlt, faJira } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHatWizard, faSmile, faAt, faComments } from '@fortawesome/free-solid-svg-icons';
 
-
 class Dock extends React.Component {
     render() {
         return (
@@ -16,7 +15,7 @@ class Dock extends React.Component {
                     <AppIcon>
                         <FontAwesomeIcon icon={faGithubAlt} alt="GitHub" />
                     </AppIcon>
-                    <AppIcon>
+                    <AppIcon onClick={() => {window.location.href='mailto:christina.m.codes@gmail.com'}}>
                         <FontAwesomeIcon icon={faAt} alt="Email" />
                     </AppIcon>
                     <AppIcon>

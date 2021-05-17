@@ -2,11 +2,9 @@ import styled from 'styled-components';
 
 export const WindowContainer = styled.div`
     border: 3px solid #F76484;
-    min-height: 500px;
-    min-width: 500px;
-    position: absolute;
-    top: 10%;
-    left: 200px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
     background-color: #f1f1f1;
 `;
 
@@ -30,4 +28,11 @@ export const WindowControlButton = styled.button`
     &:nth-child(2) {
         margin-right: 6px;
     }
+`;
+
+export const BrowserIframe = styled.iframe`
+    width: 100%;
+    height: 94%;
+    box-sizing: border-box;
+    border: 0;
 `;

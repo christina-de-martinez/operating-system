@@ -2,6 +2,7 @@ import React from 'react';
 import { Background, IconGrid, Icon } from './styled';
 import Window from '../window/index';
 import Dock from '../dock/index';
+import Menubar from '../menubar/index';
 
 import { faTwitter, faMediumM } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,7 +16,7 @@ class Desktop extends React.Component {
         }
         this.toggleWindow = this.toggleWindow.bind(this);
     }
-    toggleWindow() {
+    toggleWindow(props) {
         this.setState({
             windowIsOpen: !this.state.windowIsOpen,
         });
@@ -23,6 +24,7 @@ class Desktop extends React.Component {
     render() {
         return (
             <Background>
+                <Menubar></Menubar>
                 <IconGrid>
                     <Icon>
                         <FontAwesomeIcon icon={faUserAstronaut} />
@@ -61,6 +63,7 @@ class Desktop extends React.Component {
                 <Dock
                    windowIsOpen={this.state.windowIsOpen}
                    toggleWindow={this.toggleWindow} 
+                   mailToLink={this.mailToLink}
                 ></Dock>
             </Background>
         )
