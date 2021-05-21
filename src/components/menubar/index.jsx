@@ -19,7 +19,6 @@ var getCurrentTime = () => {
     return time;
 }
 var toggleDropdown = () => {
-    console.log(this);
     // this.setState({
     //     dropdownIsOpen: !this.state.dropdownIsOpen,
     // });

@@ -37,7 +37,8 @@ export const AppIcon = styled.button`
     &:first-child {
         background-color: #9CE4FC;
     }
-    &:nth-child(2) {
+    &:nth-child(2),
+    &:nth-child(7) {
         background-color: #C5A8F0;
     }
     &:nth-child(3) {

@@ -1,0 +1,13 @@
+.minesquare {
+    width: 10%;
+    height: 10%;
+}
+.bomb {
+    background-color: purple;
+}
+.empty {
+    background-color: greenyellow;
+}
+.flag {
+    background-color: orangered;
+}

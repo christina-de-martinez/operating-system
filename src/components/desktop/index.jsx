@@ -13,12 +13,14 @@ class Desktop extends React.Component {
         super(props);
         this.state = {
             windowIsOpen: true,
+            windowType: 'Browser'
         }
         this.toggleWindow = this.toggleWindow.bind(this);
     }
-    toggleWindow(props) {
+    toggleWindow(arg) {
         this.setState({
             windowIsOpen: !this.state.windowIsOpen,
+            windowType: {arg}
         });
     }
     render() {
@@ -57,7 +59,8 @@ class Desktop extends React.Component {
                 </IconGrid>
                 {this.state.windowIsOpen && (
                     <Window
-                        toggleWindow={this.toggleWindow} 
+                        toggleWindow={this.toggleWindow}
+                        windowType={this.state.windowType}
                     ></Window>
                 )}
                 <Dock

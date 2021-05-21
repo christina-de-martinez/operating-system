@@ -18,6 +18,7 @@ export const MenuIcon = styled.button`
     border: 0px transparent;
     padding: 0;
     font-size: 20px;
+    background-color: transparent;
 `;
 
 export const MenuLeft = styled.div`

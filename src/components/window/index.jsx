@@ -3,7 +3,9 @@ import React from 'react';
 import { Rnd } from "react-rnd";
 import { WindowContainer, WindowTopBar, WindowControlButton, BrowserIframe } from './styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMinus, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faMinus, faTimes } from '@fortawesome/free-solid-svg-icons';
+import Browser from '../applications/browser/index';
+import Minesweeper from '../applications/minesweeper/index';
 
 class Window extends React.Component {
     constructor(props) {
@@ -35,7 +37,8 @@ class Window extends React.Component {
                         />
                     </WindowControlButton>
                 </WindowTopBar>
-                <BrowserIframe src="http://example.com/"></BrowserIframe>
+                { this.props.windowType.arg === 'Browser' && <Browser />}
+                { this.props.windowType.arg === 'Minesweeper' && <Minesweeper />}
             </WindowContainer>
             </Rnd>
         )
