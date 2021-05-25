@@ -4,9 +4,8 @@ import Window from '../window/index';
 import Dock from '../dock/index';
 import Menubar from '../menubar/index';
 
-import { faTwitter, faMediumM } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserAstronaut, faCameraRetro, faFolder } from '@fortawesome/free-solid-svg-icons';
+import { faFolder } from '@fortawesome/free-solid-svg-icons';
 
 class Desktop extends React.Component {
     constructor(props) {
