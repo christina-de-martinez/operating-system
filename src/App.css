@@ -1,12 +1,10 @@
 .minesquare {
     width: 10%;
     height: 10%;
+    background-color: #FCB0BE;
 }
-.bomb {
-    background-color: purple;
-}
-.empty {
-    background-color: greenyellow;
+.checked {
+    background-color: #ddd;
 }
 .flag {
     background-color: orangered;

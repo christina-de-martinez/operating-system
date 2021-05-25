@@ -27,12 +27,25 @@ export const IconGrid = styled.div`
 `;
 
 export const Icon = styled.button`
-    width: 80px;
-    height: 80px;
-    background-color: #FFF7BD;
+    width: 120px;
+    height: 100px;
     margin: 10px;
     display: flex;
+    background-color: transparent;
+    border: transparent;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: #333;
+`;
+
+export const Folder = styled.div`
+    height: 80px;
+    width: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    color: #62D3F9;
 `;

@@ -27,6 +27,7 @@ class Window extends React.Component {
                         <FontAwesomeIcon 
                             icon={faMinus} 
                             alt="Minimize" 
+                            onClick={this.props.toggleWindow}
                         />
                     </WindowControlButton>
                     <WindowControlButton>
