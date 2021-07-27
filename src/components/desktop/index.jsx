@@ -27,25 +27,25 @@ class Desktop extends React.Component {
             <Background>
                 <Menubar></Menubar>
                 <IconGrid>
-                    <Icon>
+                    {/* <Icon>
                         <Folder>
                             <FontAwesomeIcon icon={faFolder} />
                         </Folder>
                         The Krabby Patty Formula
-                    </Icon>
-                    <Icon>
+                    </Icon> */}
+                    {/* <Icon>
                         <Folder>
                             <FontAwesomeIcon icon={faFolder} />
                         </Folder>
                         Super Secret Files
-                    </Icon>
-                    <Icon>
+                    </Icon> */}
+                    <Icon onClick={() => {window.location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'}}>
                         <Folder>
                             <FontAwesomeIcon icon={faFolder} />
                         </Folder>
                         Passwords<br/>(for my eyes only)
                     </Icon>
-                    <Icon>
+                    <Icon onClick={() => {window.location.href='https://www.instagram.com/christina.codes/'}}>
                         <Folder>
                             <FontAwesomeIcon icon={faFolder} />
                         </Folder>

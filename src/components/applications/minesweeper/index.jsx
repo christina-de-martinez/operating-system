@@ -28,6 +28,12 @@ class Minesweeper extends React.Component {
         if (this.state.gameOver) { return }
         buttonType === 'bomb' ? this.handleBombClick(index) : this.handleEmptyClick(index);
     }
+
+    placeFlag() {
+        if (this.state.gameOver === false) { return }
+        // if the square hasn't been checked and the amount of flags is less than the amount of bombs, 
+        
+    }
     
     handleBombClick(index) {
         console.log('boom');
