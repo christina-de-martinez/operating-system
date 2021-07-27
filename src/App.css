@@ -1,11 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
 .minesquare {
     width: 10%;
     height: 10%;
     background-color: #FCB0BE;
+    font-family: 'VT323', monospace;
+    font-size: 24px;
 }
 .checked {
     background-color: #ddd;
 }
-.flag {
-    background-color: orangered;
+/* .flag {
+    background-color: #FFC299;
+} */
+.smiley {
+    position: relative;
+    top: 2px;
 }

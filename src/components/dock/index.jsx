@@ -2,7 +2,7 @@ import React from 'react';
 import { DockContainer, DockParent, AppIcon } from './styled';
 import { faGithubAlt, faJira } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHatWizard, faSmile, faAt, faComments, faBomb } from '@fortawesome/free-solid-svg-icons';
+import { faHatWizard, faSmile, faGlobeEurope, faAt, faComments, faBomb } from '@fortawesome/free-solid-svg-icons';
 
 class Dock extends React.Component {
     render() {
@@ -20,6 +20,9 @@ class Dock extends React.Component {
                     </AppIcon>
                     <AppIcon onClick={() => {window.location.href='https://www.instagram.com/christina.codes/'}}>
                         <FontAwesomeIcon icon={faComments} alt="Instant Messenger" />
+                    </AppIcon>
+                    <AppIcon onClick={() => { this.props.toggleWindow('Map') }}>
+                        <FontAwesomeIcon icon={faGlobeEurope} alt="Maps" />
                     </AppIcon>
                     {/* <AppIcon>
                         <FontAwesomeIcon icon={faSmile} alt="Contacts" />

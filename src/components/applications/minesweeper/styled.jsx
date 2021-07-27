@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const GameContainer = styled.div`
     width: 100%;
-    height: 96%;
+    height: 95%;
     background-color: #f1f1f1;
     color: #F76484;
     display: flex;
@@ -12,8 +12,8 @@ export const GameContainer = styled.div`
 `;
 
 export const GameTitle = styled.h1`
-    font-size: 26px;
-    font-style: italic;
+    font-size: 36px;
+    font-family: 'VT323', monospace;
 `;
 
 export const MinesweeperContainer = styled.div`
@@ -65,12 +65,17 @@ export const GameOverEmojis = styled.h3`
 
 export const GameOverH1 = styled.h2`
     font-size: 45px;
-    font-style: italic;
     margin: 0;
+    font-family: 'VT323', monospace;
+    font-size: 62px;
 `;
 
 export const RestartButton = styled.button`
-    padding: 8px 16px;
+    padding: 6px 12px;
     background-color: #F76484;
+    border-color: #f1f1f1;
     color: #fff;
+    margin-top: 12px;
+    font-family: 'VT323', monospace;
+    font-size: 24px;
 `;

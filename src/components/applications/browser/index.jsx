@@ -3,7 +3,7 @@ import { BrowserIframe } from './styled';
 
 function Browser() {
     return (
-        <BrowserIframe src="http://example.com/">{console.log('browser is being rendered')}</BrowserIframe>
+        <BrowserIframe src="http://example.com"></BrowserIframe>
     )
 }
 

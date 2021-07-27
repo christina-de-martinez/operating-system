@@ -1,5 +1,5 @@
 import React from 'react';
-import { GameContainer, GameTitle, MinesweeperContainer, GameOverModalContainer, GameOverModal, GameOverEmojis, GameOverH1 } from './styled';
+import { GameContainer, GameTitle, MinesweeperContainer, GameOverModalContainer, GameOverModal, GameOverEmojis, GameOverH1, RestartButton } from './styled';
 
 var shuffledArray = [];
 
@@ -7,40 +7,109 @@ class Minesweeper extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            gameOver: false
+            gameOver: false,
+            userWantsToFlag: false,
+            numOfBombs: 2,
+            correctFlags: 0
         }
         this.buildSquares = this.buildSquares.bind(this);
         this.handleSquareClick = this.handleSquareClick.bind(this);
         this.handleBombClick = this.handleBombClick.bind(this);
         this.handleEmptyClick = this.handleEmptyClick.bind(this);
         this.checkSurroundingSquares = this.checkSurroundingSquares.bind(this);
+        this.handleKey = this.handleKey.bind(this);
+        this.handleKeyUp = this.handleKeyUp.bind(this);
+        this.handleFlagClick = this.handleFlagClick.bind(this);
+    }
+
+    // componentDidMount() {
+    //     let cont = document.getElementById('minesweepercontainer');
+    //     cont.addEventListener('keydown', this.handleKey);
+    //     cont.addEventListener('keyup', this.handleKeyUp);
+    // }
+
+    // componentWillUnmount() {
+    //     let cont = document.getElementById('minesweepercontainer');
+    //     cont.removeEventListener('keydown', this.handleKey);
+    //     cont.removeEventListener('keyup', this.handleKeyUp);
+    // }
+
+    // TODO: add a better way to restart the game
+    restart() {
+        setTimeout(() => {
+            this.props.toggleWindow();
+        }, 100);
     }
 
     buildSquares() {
-        var amountOfBombs = 20;
+        var amountOfBombs = this.state.numOfBombs;
         const bombsArray = Array(amountOfBombs).fill('bomb');
         const emptyArray = Array(100 - amountOfBombs).fill('empty');
         const allSquaresArray = emptyArray.concat(bombsArray);
         shuffledArray = allSquaresArray.sort(() => Math.random() - 0.5);
     }
+
+    handleKey(event) {
+        this.setState({ userWantsToFlag: true });
+        console.log(this.state)
+    }
+    handleKeyUp(event) {
+        this.setState({ userWantsToFlag: false })
+    }
     
     handleSquareClick(buttonType, index) {
         if (this.state.gameOver) { return }
-        buttonType === 'bomb' ? this.handleBombClick(index) : this.handleEmptyClick(index);
+        // TODO: add ability to remove flags
+        if (this.state.userWantsToFlag === true) {
+            this.handleFlagClick(index);
+        } else if (buttonType === 'bomb') { 
+            this.handleBombClick(index)
+        } else { 
+            this.handleEmptyClick(index) 
+        }
     }
 
-    placeFlag() {
-        if (this.state.gameOver === false) { return }
-        // if the square hasn't been checked and the amount of flags is less than the amount of bombs, 
+    userWins() {
+        console.log('yayyyyy')
+    }
+
+    handleFlagClick(index) {
+        const currentEl = document.getElementById(index);
+        if (this.state.gameOver) { 
+            return;
+        }
+        if (currentEl.classList.contains('checked')) {
+            return;
+        }
+        if (currentEl.classList.contains('bomb')) { 
+            return; 
+        }
+        if (currentEl.classList.contains('empty')) {
+            currentEl.style.backgroundColor = '#FFC299';
+            currentEl.classList.add('incorrectFlag');
+            console.log('wrong')
+        } 
         
+        console.log('clicking')
+        currentEl.innerHTML = '⛳️';
+        currentEl.classList.add('flag');
+        if (currentEl.classList.contains('bomb')) {
+            currentEl.style.backgroundColor = '#CAE3A0';
+            currentEl.classList.add('diffusedBomb');
+            let newNumOfBombs = this.state.numOfBombs - 1;
+            let newCorrectFlags = this.state.correctFlags + 1;
+            this.setState({ numOfBombs: newNumOfBombs, correctFlags: newCorrectFlags })
+            console.log('right')
+            if (this.state.correctFlags === this.state.numOfBombs) {
+                this.userWins();
+            }
+        }
     }
     
     handleBombClick(index) {
-        console.log('boom');
         this.setState({ gameOver: true });
         const clickedBomb = document.getElementById(index);
         clickedBomb.innerHTML = '💣';
-        // make a better way to restart the game. Right now it's real buggy 
     }
     
     handleEmptyClick(index) {
@@ -53,6 +122,9 @@ class Minesweeper extends React.Component {
         }
         if (currentElement.classList.contains('bomb')) { 
             return; 
+        }
+        if (currentElement.classList.contains('flag')) {
+            return;
         }
     
         var numberOfNeighboringBombs = 0;
@@ -173,10 +245,15 @@ class Minesweeper extends React.Component {
         return (
         <GameContainer>
             <GameTitle>Minesweeper</GameTitle>
-            <MinesweeperContainer>
+            <MinesweeperContainer id="minesweepercontainer">
                 {this.buildSquares()}
                 {shuffledArray.map((item, index) => {
-                    let square = React.createElement('button', {'key': `mine-${index}`, 'id': index, 'className': `minesquare ${item}`, 'onClick': (() => this.handleSquareClick(item, index))}, '');
+                    let square = React.createElement('button', {
+                        'key': `mine-${index}`, 
+                        'id': index, 
+                        'className': `minesquare ${item}`, 
+                        'onClick': (() => this.handleSquareClick(item, index)),
+                    }, '');
                     return square;
                 })}
                 {this.state.gameOver && (
@@ -184,6 +261,7 @@ class Minesweeper extends React.Component {
                         <GameOverModal>
                             <GameOverEmojis>💣💥🤯</GameOverEmojis>
                             <GameOverH1>GAME OVER</GameOverH1>
+                            <RestartButton onClick={() => {this.restart()}}>Goodbye <span className="smiley">&#x263A;</span></RestartButton>
                         </GameOverModal>
                     </GameOverModalContainer>)}
             </MinesweeperContainer>

@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faTimes } from '@fortawesome/free-solid-svg-icons';
 import Browser from '../applications/browser/index';
 import Minesweeper from '../applications/minesweeper/index';
+import Map from '../applications/map/index';
 
 class Window extends React.Component {
     constructor(props) {
@@ -39,7 +40,8 @@ class Window extends React.Component {
                     </WindowControlButton>
                 </WindowTopBar>
                 { this.props.windowType.arg === 'Browser' && <Browser />}
-                { this.props.windowType.arg === 'Minesweeper' && <Minesweeper />}
+                { this.props.windowType.arg === 'Minesweeper' && <Minesweeper toggleWindow={this.props.toggleWindow} />}
+                { this.props.windowType.arg === 'Map' && <Map />}
             </WindowContainer>
             </Rnd>
         )
