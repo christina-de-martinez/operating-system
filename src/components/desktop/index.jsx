@@ -39,18 +39,18 @@ class Desktop extends React.Component {
                         </Folder>
                         Super Secret Files
                     </Icon> */}
-                    <Icon onClick={() => {window.location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'}}>
+                    <Icon onClick={() => {this.toggleWindow('Passwords')}}>
                         <Folder>
                             <FontAwesomeIcon icon={faFolder} />
                         </Folder>
                         Passwords<br/>(for my eyes only)
                     </Icon>
-                    <Icon onClick={() => {window.location.href='https://www.instagram.com/christina.codes/'}}>
+                    {/* <Icon onClick={() => {this.toggleWindow('Instagram')}}>
                         <Folder>
                             <FontAwesomeIcon icon={faFolder} />
                         </Folder>
                         Professional Stuff
-                    </Icon>
+                    </Icon> */}
                 </IconGrid>
                 {this.state.windowIsOpen && (
                     <Window
