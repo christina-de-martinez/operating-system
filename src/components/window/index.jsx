@@ -21,31 +21,31 @@ class Window extends React.Component {
                     height: 600
                 }}
             >
-            <WindowContainer>
-                <WindowTopBar>
-                    <WindowControlButton>
-                        <FontAwesomeIcon 
-                            icon={faMinus} 
-                            alt="Minimize" 
-                            onClick={this.props.toggleWindow}
-                        />
-                    </WindowControlButton>
-                    <WindowControlButton>
-                        <FontAwesomeIcon 
-                            icon={faTimes} 
-                            alt="Close window" 
-                            onClick={this.props.toggleWindow}
-                        />
-                    </WindowControlButton>
-                </WindowTopBar>
-                {/* { this.props.openWindows.map((wind, i) => {
-                    console.log(wind,i)
-                    wind.type === 'Browser' && <Minesweeper />
-                }) } */}
-                {/* <Browser /> */}
-                {/* { this.props.windowType.arg === 'Browser' && <Browser />} */}
-                { this.props.windowType.arg === 'Minesweeper' && <Minesweeper />}
-            </WindowContainer>
+                <WindowContainer>
+                    <WindowTopBar>
+                        <WindowControlButton>
+                            <FontAwesomeIcon 
+                                icon={faMinus} 
+                                alt="Minimize" 
+                                onClick={this.props.toggleWindow}
+                            />
+                        </WindowControlButton>
+                        <WindowControlButton>
+                            <FontAwesomeIcon 
+                                icon={faTimes} 
+                                alt="Close window" 
+                                onClick={this.props.toggleWindow}
+                            />
+                        </WindowControlButton>
+                    </WindowTopBar>
+                    {/* { this.props.openWindows.map((wind, i) => {
+                        console.log(wind,i)
+                        wind.type === 'Browser' && <Minesweeper />
+                    }) } */}
+                    {/* <Browser /> */}
+                    { this.props.windowType === 'Browser' && <Browser />}
+                    { this.props.windowType === 'Minesweeper' && <Minesweeper />}
+                </WindowContainer>
             </Rnd>
         )
     }

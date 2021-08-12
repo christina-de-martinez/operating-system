@@ -15,49 +15,29 @@ class Desktop extends React.Component {
             windowType: 'Minesweeper', 
             openWindows: [
                 {
+                    type: 'Browser',
+                    isOpen: true,
+                    width: 800,
+                    height: 800
+                },
+                {
                     type: 'Minesweeper',
+                    isOpen: false,
                     width: 800,
                     height: 800
                 }
-            ]
+            ],
+            openWindows2: ['Browser','Minesweeper']
         }
         this.toggleWindow = this.toggleWindow.bind(this);
     }
     toggleWindow(arg) {
-        this.setState(prevState => ({
-            windowIsOpen: !this.state.windowIsOpen,
-            windowType: {arg},
-            openWindows: prevState.openWindows.forEach((item => {
-                if (item.type === arg) {
-                    console.log('matched')
-                    console.log(item)
-                    item.isOpen = !this.state.isOpen
-                } else {
-                    console.log('unmatched')
-                    console.log(item)
-                    prevState.openWindows.push({
-                        isOpen: !this.state.isOpen,
-                        type: arg,
-                        width: 800,
-                        height: 800,
-                        x: 100+(10*1),
-                        y: 100+(10*1)
-                    })
-                }
-            }
-        )),
-            // openWindows: [...prevState.openWindows,
-            //     {
-            //         isOpen: !this.state.isOpen,
-            //         type: arg,
-            //         width: 800,
-            //         height: 800,
-            //         x: 100,
-            //         y: 100
-            //     }
-            // ]
+        console.log('run')
+        this.setState((prevState) => ({
+            openWindows2: [...prevState.openWindows2, arg]
         }))
     }
+
     render() {
         return (
             <Background>
@@ -88,13 +68,13 @@ class Desktop extends React.Component {
                         Professional Stuff
                     </Icon>
                 </IconGrid>
-                {this.state.openWindows.map((wind, i) => {
+                {this.state.openWindows2.map((wind, i) => {
                     return (
                         <Window
                             key={`window${i}`}
                             toggleWindow={this.toggleWindow}
-                            windowType={wind.type}
-                            openWindows={this.state.openWindows}
+                            windowType={wind[i]}
+                            openWindows={this.state.openWindows2}
                         ></Window>
                     )
                     // if (wind.isOpen) {
