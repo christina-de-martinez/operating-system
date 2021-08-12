@@ -13,14 +13,50 @@ class Desktop extends React.Component {
         this.state = {
             windowIsOpen: false,
             windowType: 'Minesweeper', 
+            openWindows: [
+                {
+                    type: 'Minesweeper',
+                    width: 800,
+                    height: 800
+                }
+            ]
         }
         this.toggleWindow = this.toggleWindow.bind(this);
     }
     toggleWindow(arg) {
-        this.setState({
+        this.setState(prevState => ({
             windowIsOpen: !this.state.windowIsOpen,
             windowType: {arg},
-        });
+            openWindows: prevState.openWindows.forEach((item => {
+                if (item.type === arg) {
+                    console.log('matched')
+                    console.log(item)
+                    item.isOpen = !this.state.isOpen
+                } else {
+                    console.log('unmatched')
+                    console.log(item)
+                    prevState.openWindows.push({
+                        isOpen: !this.state.isOpen,
+                        type: arg,
+                        width: 800,
+                        height: 800,
+                        x: 100+(10*1),
+                        y: 100+(10*1)
+                    })
+                }
+            }
+        )),
+            // openWindows: [...prevState.openWindows,
+            //     {
+            //         isOpen: !this.state.isOpen,
+            //         type: arg,
+            //         width: 800,
+            //         height: 800,
+            //         x: 100,
+            //         y: 100
+            //     }
+            // ]
+        }))
     }
     render() {
         return (
@@ -52,16 +88,37 @@ class Desktop extends React.Component {
                         Professional Stuff
                     </Icon>
                 </IconGrid>
-                {this.state.windowIsOpen && (
+                {this.state.openWindows.map((wind, i) => {
+                    return (
+                        <Window
+                            key={`window${i}`}
+                            toggleWindow={this.toggleWindow}
+                            windowType={wind.type}
+                            openWindows={this.state.openWindows}
+                        ></Window>
+                    )
+                    // if (wind.isOpen) {
+                    //     <Window
+                    //         toggleWindow={this.toggleWindow}
+                    //         windowType={wind.type}
+                    //         openWindows={this.state.openWindows}
+                    //     ></Window>
+                    // } else {
+                    //     return;
+                    // }
+                })}
+                {/* {this.state.windowIsOpen && (
                     <Window
                         toggleWindow={this.toggleWindow}
                         windowType={this.state.windowType}
+                        openWindows={this.state.openWindows}
                     ></Window>
-                )}
+                )} */}
                 <Dock
                    windowIsOpen={this.state.windowIsOpen}
                    toggleWindow={this.toggleWindow} 
                    mailToLink={this.mailToLink}
+                   openWindows={this.state.openWindows}
                 ></Dock>
             </Background>
         )

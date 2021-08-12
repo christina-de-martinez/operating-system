@@ -38,7 +38,12 @@ class Window extends React.Component {
                         />
                     </WindowControlButton>
                 </WindowTopBar>
-                { this.props.windowType.arg === 'Browser' && <Browser />}
+                {/* { this.props.openWindows.map((wind, i) => {
+                    console.log(wind,i)
+                    wind.type === 'Browser' && <Minesweeper />
+                }) } */}
+                {/* <Browser /> */}
+                {/* { this.props.windowType.arg === 'Browser' && <Browser />} */}
                 { this.props.windowType.arg === 'Minesweeper' && <Minesweeper />}
             </WindowContainer>
             </Rnd>
