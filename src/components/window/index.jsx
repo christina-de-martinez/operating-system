@@ -34,7 +34,7 @@ class Window extends React.Component {
                             <FontAwesomeIcon 
                                 icon={faTimes} 
                                 alt="Close window" 
-                                onClick={this.props.toggleWindow}
+                                onClick={() => this.props.toggleWindow(this.windowType)}
                             />
                         </WindowControlButton>
                     </WindowTopBar>
@@ -43,8 +43,8 @@ class Window extends React.Component {
                         wind.type === 'Browser' && <Minesweeper />
                     }) } */}
                     {/* <Browser /> */}
-                    { this.props.windowType === 'Browser' && <Browser />}
-                    { this.props.windowType === 'Minesweeper' && <Minesweeper />}
+                    { this.props.windowType == 'Browser' && <Browser />}
+                    { this.props.windowType == 'Minesweeper' && <Minesweeper />}
                 </WindowContainer>
             </Rnd>
         )

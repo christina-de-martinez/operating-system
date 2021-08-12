@@ -33,9 +33,16 @@ class Desktop extends React.Component {
     }
     toggleWindow(arg) {
         console.log('run')
-        this.setState((prevState) => ({
-            openWindows2: [...prevState.openWindows2, arg]
-        }))
+        const current = this.state.openWindows2
+        if (!current.includes(arg)) {
+            this.setState((prevState) => ({
+                openWindows2: [...prevState.openWindows2, arg]
+            }))
+        } else {
+            this.setState({
+                openWindows2: [arg]
+            })
+        }
     }
 
     render() {
