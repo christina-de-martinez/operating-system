@@ -1,23 +1,34 @@
 import React from 'react';
-import { GameContainer, GameTitle, MinesweeperContainer, GameOverModalContainer, GameOverModal, GameOverEmojis, GameOverH1 } from './styled';
+import { GameContainer, GameTitle, MinesweeperContainer, GameOverModalContainer, GameOverModal, GameOverEmojis, GameOverH1, RestartButton } from './styled';
 
 var shuffledArray = [];
 
 class Minesweeper extends React.Component {
     constructor(props) {
         super(props);
+        this.correctlyGuessedFlags = 0;
+        this.squaresInVirtualDom = [];
         this.state = {
-            gameOver: false
+            gameOver: false,
+            numOfBombs: 2,
         }
         this.buildSquares = this.buildSquares.bind(this);
         this.handleSquareClick = this.handleSquareClick.bind(this);
         this.handleBombClick = this.handleBombClick.bind(this);
         this.handleEmptyClick = this.handleEmptyClick.bind(this);
         this.checkSurroundingSquares = this.checkSurroundingSquares.bind(this);
+        this.handleFlagClick = this.handleFlagClick.bind(this);
+    }
+
+    // TODO: add a better way to restart the game
+    restart() {
+        setTimeout(() => {
+            this.props.toggleWindow();
+        }, 100);
     }
 
     buildSquares() {
-        var amountOfBombs = 20;
+        var amountOfBombs = this.state.numOfBombs;
         const bombsArray = Array(amountOfBombs).fill('bomb');
         const emptyArray = Array(100 - amountOfBombs).fill('empty');
         const allSquaresArray = emptyArray.concat(bombsArray);
@@ -26,15 +37,59 @@ class Minesweeper extends React.Component {
     
     handleSquareClick(buttonType, index) {
         if (this.state.gameOver) { return }
-        buttonType === 'bomb' ? this.handleBombClick(index) : this.handleEmptyClick(index);
+        // TODO: add ability to remove flags
+        if (buttonType === 'bomb') { 
+            this.handleBombClick(index)
+        } else { 
+            this.handleEmptyClick(index) 
+        }
+    }
+
+    userWins() {
+        setTimeout(() => {
+            alert('You win!');
+        }, 300);
+    }
+
+    handleContextMenu(event, item, index) {
+        event.preventDefault();
+        this.handleFlagClick(event.target);
+    }
+
+    setSquaresInVirtualDom = element => {
+        this.squaresInVirtualDom = element;
+    };
+
+    handleFlagClick(target) {
+        let currentEl = target;
+        if (this.state.gameOver) { 
+            return;
+        }
+        if (currentEl.classList.contains('checked')) {
+            return;
+        }
+        if (currentEl.classList.contains('empty')) {
+            currentEl.style.backgroundColor = '#FFC299';
+            currentEl.classList.add('incorrectFlag');
+        } 
+        currentEl.innerHTML = '⛳️';
+        currentEl.classList.add('flag');
+
+        if (currentEl.classList.contains('bomb')) {
+            currentEl.style.backgroundColor = '#CAE3A0';
+            currentEl.classList.add('diffusedBomb');
+            this.correctlyGuessedFlags = this.correctlyGuessedFlags + 1;
+            console.log('you have guessed '+this.correctlyGuessedFlags)
+            if (this.correctlyGuessedFlags === this.state.numOfBombs) {
+                this.userWins();
+            }
+        }
     }
     
     handleBombClick(index) {
-        console.log('boom');
         this.setState({ gameOver: true });
         const clickedBomb = document.getElementById(index);
         clickedBomb.innerHTML = '💣';
-        // make a better way to restart the game. Right now it's real buggy 
     }
     
     handleEmptyClick(index) {
@@ -42,11 +97,16 @@ class Minesweeper extends React.Component {
         if (this.state.gameOver) { 
             return;
         }
-        if (currentElement.classList.contains('checked')) {
-            return;
-        }
-        if (currentElement.classList.contains('bomb')) { 
-            return; 
+        if (currentElement) {
+            if (currentElement.classList.contains('checked')) {
+                return;
+            }
+            if (currentElement.classList.contains('bomb')) { 
+                return; 
+            }
+            if (currentElement.classList.contains('flag')) {
+                return;
+            }
         }
     
         var numberOfNeighboringBombs = 0;
@@ -167,17 +227,28 @@ class Minesweeper extends React.Component {
         return (
         <GameContainer>
             <GameTitle>Minesweeper</GameTitle>
-            <MinesweeperContainer>
+            <MinesweeperContainer
+                ref={this.setSquaresInVirtualDom}
+            >
                 {this.buildSquares()}
                 {shuffledArray.map((item, index) => {
-                    let square = React.createElement('button', {'key': `mine-${index}`, 'id': index, 'className': `minesquare ${item}`, 'onClick': (() => this.handleSquareClick(item, index))}, '');
-                    return square;
+                    return (
+                        <button 
+                            key={`mine-${index}`} 
+                            id={index} 
+                            className={`minesquare ${item}`}
+                            onClick={() => this.handleSquareClick(item, index)}
+                            onContextMenu={(event, item, index) => this.handleContextMenu(event, item, index)}
+                        ></button>
+                    )
+                    // return square;
                 })}
                 {this.state.gameOver && (
                     <GameOverModalContainer>
                         <GameOverModal>
                             <GameOverEmojis>💣💥🤯</GameOverEmojis>
                             <GameOverH1>GAME OVER</GameOverH1>
+                            <RestartButton onClick={() => {this.restart()}}>Goodbye <span className="smiley">&#x263A;</span></RestartButton>
                         </GameOverModal>
                     </GameOverModalContainer>)}
             </MinesweeperContainer>

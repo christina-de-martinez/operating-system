@@ -56,30 +56,30 @@ class Desktop extends React.Component {
             <Background>
                 <Menubar></Menubar>
                 <IconGrid>
-                    <Icon>
+                    {/* <Icon>
                         <Folder>
                             <FontAwesomeIcon icon={faFolder} />
                         </Folder>
                         The Krabby Patty Formula
-                    </Icon>
-                    <Icon>
+                    </Icon> */}
+                    {/* <Icon>
                         <Folder>
                             <FontAwesomeIcon icon={faFolder} />
                         </Folder>
                         Super Secret Files
-                    </Icon>
-                    <Icon>
+                    </Icon> */}
+                    <Icon onClick={() => {this.toggleWindow('Passwords')}}>
                         <Folder>
                             <FontAwesomeIcon icon={faFolder} />
                         </Folder>
                         Passwords<br/>(for my eyes only)
                     </Icon>
-                    <Icon>
+                    {/* <Icon onClick={() => {this.toggleWindow('Instagram')}}>
                         <Folder>
                             <FontAwesomeIcon icon={faFolder} />
                         </Folder>
                         Professional Stuff
-                    </Icon>
+                    </Icon> */}
                 </IconGrid>
                 {this.state.browserIsOpen && (
                     <Window

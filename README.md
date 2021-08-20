@@ -70,19 +70,26 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 # Christina's TODOs
-Must work: 
-* z-index on windows - becomes top element when you cilck on the top bar of the window
-* offset for each window - needs to offset so that you can tell that a new window was opened
+Must do: 
+
+Improvements to existing apps: 
+z-index on windows - becomes top element when you cilck on the top bar of the window
+Internet browser should have frequently-visited or bookmarked sites including LinkedIn, Instagram, Twitter. 
+About section that lists how it's made (context menu when you click on the lemon icon)
+
+New apps:
 Internet browser should have frequently-visited or bookmarked sites including LinkedIn, Instagram, Twitter
-Have the Contacts app open to my entry with contact info, and add some nonsensical ones if you want. This could be a good way to present the Resume
-Or I could present the resume in a Word-like mini app
-Pop-up about accepting cookies only it's like real cookies
-Terminal?
-About section that lists how it's made 
+About section that lists how it's made
+Contacts app open to my entry. Can also have nonsensical ones. Could be a good way to represent a resume
+Or resume could be in a word-like app
+Messenger (Apple style or vintage style?) - with cheeky messages about why I'd be a great hire - maybe a chatbot 
+Terminal
 Calculator
 Timer / clock app 
 Weather app 
-Messenger (Apple style or vintage style?) - with cheeky messages about why I'd be a great hire
-Maps with pins of some of my fav places 
+
+Other ideas: 
+Pop-up about accepting cookies only it's like real cookies
 "Buy me a coffee" link
-Goodreads clone
+Reimagined Goodreads clone
+Make maps iFrame have pins 
