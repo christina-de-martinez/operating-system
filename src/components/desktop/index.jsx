@@ -11,16 +11,32 @@ class Desktop extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            windowIsOpen: false,
-            windowType: 'Minesweeper', 
+            windowType: 'Minesweeper',
+            browserIsOpen: false,
+            minesweeperIsOpen: true, 
         }
         this.toggleWindow = this.toggleWindow.bind(this);
     }
     toggleWindow(arg) {
-        this.setState({
-            windowIsOpen: !this.state.windowIsOpen,
-            windowType: {arg},
-        });
+        if (!arg) {
+            console.log('no args')
+        }
+        console.log('arg')
+        console.log(arg)
+        if (arg === 'Browser') {
+            console.log('browser');
+            this.setState({
+                windowType: {arg},
+                browserIsOpen: !this.state.browserIsOpen,
+            });
+        } else if (arg === 'Minesweeper') {
+            console.log('minesweeper');
+            this.setState({
+                windowType: {arg},
+                minesweeperIsOpen: !this.state.minesweeperIsOpen,
+            });
+        } 
+        console.log(this.state)
     }
     render() {
         return (
@@ -52,10 +68,18 @@ class Desktop extends React.Component {
                         Professional Stuff
                     </Icon>
                 </IconGrid>
-                {this.state.windowIsOpen && (
+                {this.state.browserIsOpen && (
                     <Window
                         toggleWindow={this.toggleWindow}
                         windowType={this.state.windowType}
+                        browserIsOpen={this.state.browserIsOpen}
+                    ></Window>
+                )}
+                {this.state.minesweeperIsOpen && (
+                    <Window
+                        toggleWindow={this.toggleWindow}
+                        windowType={this.state.windowType}
+                        minesweeperIsOpen={this.state.minesweeperIsOpen}
                     ></Window>
                 )}
                 <Dock

@@ -8,9 +8,6 @@ import Browser from '../applications/browser/index';
 import Minesweeper from '../applications/minesweeper/index';
 
 class Window extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         return (
             <Rnd
@@ -21,25 +18,27 @@ class Window extends React.Component {
                     height: 600
                 }}
             >
+            {/* need to have these detect which window kind and close it accordingly */}
             <WindowContainer>
                 <WindowTopBar>
                     <WindowControlButton>
                         <FontAwesomeIcon 
                             icon={faMinus} 
                             alt="Minimize" 
-                            onClick={this.props.toggleWindow}
+                            onClick={() => { this.props.toggleWindow('Browser') }}
                         />
                     </WindowControlButton>
                     <WindowControlButton>
                         <FontAwesomeIcon 
                             icon={faTimes} 
                             alt="Close window" 
-                            onClick={this.props.toggleWindow}
+                            onClick={() => { this.props.toggleWindow('Minesweeper') }}
                         />
                     </WindowControlButton>
                 </WindowTopBar>
-                { this.props.windowType.arg === 'Browser' && <Browser />}
-                { this.props.windowType.arg === 'Minesweeper' && <Minesweeper />}
+                {console.log(this.props)}
+                { this.props.browserIsOpen && <Browser />}
+                { this.props.minesweeperIsOpen && <Minesweeper />}
             </WindowContainer>
             </Rnd>
         )
