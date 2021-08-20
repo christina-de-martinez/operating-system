@@ -11,16 +11,45 @@ class Desktop extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            windowIsOpen: false,
-            windowType: 'Minesweeper', 
+            windowType: 'Minesweeper',
+            browserIsOpen: false,
+            minesweeperIsOpen: true, 
+            numOfWindowsOpen: 1,
         }
         this.toggleWindow = this.toggleWindow.bind(this);
     }
     toggleWindow(arg) {
-        this.setState({
-            windowIsOpen: !this.state.windowIsOpen,
-            windowType: {arg},
-        });
+        if (arg === 'Browser') {
+            if (!this.state.browserIsOpen) { 
+                this.setState({
+                    numOfWindowsOpen: this.state.numOfWindowsOpen+1,
+                })
+            } 
+            else {
+                this.setState({
+                    numOfWindowsOpen: this.state.numOfWindowsOpen-1,
+                })
+            }
+            this.setState({
+                windowType: arg,
+                browserIsOpen: !this.state.browserIsOpen,
+            });
+        } else if (arg === 'Minesweeper') {
+            if (!this.state.minesweeperIsOpen) { 
+                this.setState({
+                    numOfWindowsOpen: this.state.numOfWindowsOpen+1,
+                })
+            } 
+            else {
+                this.setState({
+                    numOfWindowsOpen: this.state.numOfWindowsOpen-1,
+                })
+            }
+            this.setState({
+                windowType: arg,
+                minesweeperIsOpen: !this.state.minesweeperIsOpen,
+            });
+        } 
     }
     render() {
         return (
@@ -52,10 +81,20 @@ class Desktop extends React.Component {
                         Professional Stuff
                     </Icon> */}
                 </IconGrid>
-                {this.state.windowIsOpen && (
+                {this.state.browserIsOpen && (
                     <Window
                         toggleWindow={this.toggleWindow}
                         windowType={this.state.windowType}
+                        browserIsOpen={this.state.browserIsOpen}
+                        numOfWindowsOpen={this.state.numOfWindowsOpen}
+                    ></Window>
+                )}
+                {this.state.minesweeperIsOpen && (
+                    <Window
+                        toggleWindow={this.toggleWindow}
+                        windowType={this.state.windowType}
+                        minesweeperIsOpen={this.state.minesweeperIsOpen}
+                        numOfWindowsOpen={this.state.numOfWindowsOpen}
                     ></Window>
                 )}
                 <Dock

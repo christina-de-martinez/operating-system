@@ -73,10 +73,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 Must do: 
 
 Improvements to existing apps: 
+z-index on windows - becomes top element when you cilck on the top bar of the window
 Internet browser should have frequently-visited or bookmarked sites including LinkedIn, Instagram, Twitter. 
 About section that lists how it's made (context menu when you click on the lemon icon)
 
 New apps:
+Internet browser should have frequently-visited or bookmarked sites including LinkedIn, Instagram, Twitter
+About section that lists how it's made
 Contacts app open to my entry. Can also have nonsensical ones. Could be a good way to represent a resume
 Or resume could be in a word-like app
 Messenger (Apple style or vintage style?) - with cheeky messages about why I'd be a great hire - maybe a chatbot 

@@ -13,36 +13,47 @@ import Instagram from '../applications/instagram/index';
 class Window extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            xOffset: 160,
+            yOffset: 90
+        }
+    }
+    componentWillMount() {
+        this.setState({
+            xOffset: 120 + (this.props.numOfWindowsOpen * Math.random() * (100 - 30) + 30),
+            yOffset: 50 + (this.props.numOfWindowsOpen * Math.random() * (100 - 30) + 30)
+        })
     }
     render() {
         return (
             <Rnd
                 default={{
-                    x: 160,
-                    y: 90,
+                    x: this.state.xOffset,
+                    y: this.state.yOffset,
                     width: 800,
                     height: 600
                 }}
             >
+            {/* need to have these detect which window kind and close it accordingly */}
             <WindowContainer>
-                <WindowTopBar>
+                <WindowTopBar onClick={this.offset}>
                     <WindowControlButton>
                         <FontAwesomeIcon 
                             icon={faMinus} 
                             alt="Minimize" 
-                            onClick={this.props.toggleWindow}
+                            onClick={() => { this.props.toggleWindow(this.props.windowType) }}
                         />
                     </WindowControlButton>
                     <WindowControlButton>
                         <FontAwesomeIcon 
                             icon={faTimes} 
                             alt="Close window" 
-                            onClick={this.props.toggleWindow}
+                            onClick={() => { this.props.toggleWindow(this.props.windowType) }}
                         />
                     </WindowControlButton>
                 </WindowTopBar>
-                { this.props.windowType.arg === 'Browser' && <Browser />}
-                { this.props.windowType.arg === 'Minesweeper' && <Minesweeper toggleWindow={this.props.toggleWindow} />}
+                { this.props.browserIsOpen && <Browser />}
+                { this.props.minesweeperIsOpen && <Minesweeper />}
                 { this.props.windowType.arg === 'Map' && <Map />}
                 { this.props.windowType.arg === 'Passwords' && <Passwords />}
                 { this.props.windowType.arg === 'Instagram' && <Instagram />}
