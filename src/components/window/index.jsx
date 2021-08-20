@@ -18,7 +18,7 @@ class Window extends React.Component {
             yOffset: 90
         }
     }
-    componentDidMount() {
+    componentWillUpdate() {
         this.setState({
             xOffset: 120 + (this.props.numOfWindowsOpen * Math.random() * (100 - 30) + 30),
             yOffset: 50 + (this.props.numOfWindowsOpen * Math.random() * (100 - 30) + 30)
