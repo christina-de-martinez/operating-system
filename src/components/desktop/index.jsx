@@ -11,10 +11,10 @@ class Desktop extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            windowType: 'Minesweeper',
-            browserIsOpen: false,
-            minesweeperIsOpen: true,
-            mapIsOpen: false,
+            windowType: 'Browser',
+            browserIsOpen: true,
+            minesweeperIsOpen: false,
+            mapsIsOpen: false,
             passwordsIsOpen: false,
             instagramIsOpen: false,
             numOfWindowsOpen: 1,
@@ -22,6 +22,7 @@ class Desktop extends React.Component {
         this.toggleWindow = this.toggleWindow.bind(this);
     }
     toggleWindow(arg) {
+        console.log(this.state)
         if (arg === 'Browser') {
             if (!this.state.browserIsOpen) { 
                 this.setState({
@@ -69,7 +70,7 @@ class Desktop extends React.Component {
                 passwordsIsOpen: !this.state.passwordsIsOpen,
             });
         } 
-        else if (arg === 'Maps') {
+        else if (arg === 'Maps' || arg === 'Map') {
             if (!this.state.mapsIsOpen) { 
                 this.setState({
                     numOfWindowsOpen: this.state.numOfWindowsOpen+1,

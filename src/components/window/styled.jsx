@@ -30,3 +30,10 @@ export const WindowControlButton = styled.button`
         margin-right: 6px;
     }
 `;
+
+export const BrowserInput = styled.input`
+    width: 100%;
+    margin: 0 20px;
+    border-radius: 40px;
+    padding: 0 16px;
+`;
