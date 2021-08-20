@@ -8,19 +8,35 @@ import Browser from '../applications/browser/index';
 import Minesweeper from '../applications/minesweeper/index';
 
 class Window extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            xOffset: 160,
+            yOffset: 90
+        }
+    }
+    componentWillMount() {
+        this.setState({
+            xOffset: 160 + (this.props.numOfWindowsOpen * 10),
+            yOffset: 90 + (this.props.numOfWindowsOpen * 10)
+        })
+        console.log(this.state);
+    }
     render() {
         return (
             <Rnd
                 default={{
-                    x: 160,
-                    y: 90,
+                    x: this.state.xOffset,
+                    y: this.state.yOffset,
                     width: 800,
                     height: 600
                 }}
             >
+                {console.log('offset')}
+                {console.log(this.state.xOffset)}
             {/* need to have these detect which window kind and close it accordingly */}
             <WindowContainer>
-                <WindowTopBar>
+                <WindowTopBar onClick={this.offset}>
                     <WindowControlButton>
                         <FontAwesomeIcon 
                             icon={faMinus} 

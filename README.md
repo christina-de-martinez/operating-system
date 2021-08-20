@@ -70,6 +70,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 # Christina's TODOs
+Must work: 
+* z-index on windows - becomes top element when you cilck on the top bar of the window
+* offset for each window - needs to offset so that you can tell that a new window was opened
 Internet browser should have frequently-visited or bookmarked sites including LinkedIn, Instagram, Twitter
 Have the Contacts app open to my entry with contact info, and add some nonsensical ones if you want. This could be a good way to present the Resume
 Or I could present the resume in a Word-like mini app

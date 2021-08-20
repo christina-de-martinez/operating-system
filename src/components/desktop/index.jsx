@@ -14,6 +14,7 @@ class Desktop extends React.Component {
             windowType: 'Minesweeper',
             browserIsOpen: false,
             minesweeperIsOpen: true, 
+            numOfWindowsOpen: 1,
         }
         this.toggleWindow = this.toggleWindow.bind(this);
     }
@@ -25,12 +26,30 @@ class Desktop extends React.Component {
         console.log(arg)
         if (arg === 'Browser') {
             console.log('browser');
+            if (!this.state.browserIsOpen) { 
+                this.setState({
+                    numOfWindowsOpen: this.state.numOfWindowsOpen+1,
+                })
+            } else {
+                this.setState({
+                    numOfWindowsOpen: this.state.numOfWindowsOpen-1,
+                })
+            }
             this.setState({
                 windowType: {arg},
                 browserIsOpen: !this.state.browserIsOpen,
             });
         } else if (arg === 'Minesweeper') {
             console.log('minesweeper');
+            if (!this.state.minesweeperIsOpen) { 
+                this.setState({
+                    numOfWindowsOpen: this.state.numOfWindowsOpen+1,
+                })
+            } else {
+                this.setState({
+                    numOfWindowsOpen: this.state.numOfWindowsOpen-1,
+                })
+            }
             this.setState({
                 windowType: {arg},
                 minesweeperIsOpen: !this.state.minesweeperIsOpen,
@@ -73,6 +92,7 @@ class Desktop extends React.Component {
                         toggleWindow={this.toggleWindow}
                         windowType={this.state.windowType}
                         browserIsOpen={this.state.browserIsOpen}
+                        numOfWindowsOpen={this.state.numOfWindowsOpen}
                     ></Window>
                 )}
                 {this.state.minesweeperIsOpen && (
@@ -80,6 +100,7 @@ class Desktop extends React.Component {
                         toggleWindow={this.toggleWindow}
                         windowType={this.state.windowType}
                         minesweeperIsOpen={this.state.minesweeperIsOpen}
+                        numOfWindowsOpen={this.state.numOfWindowsOpen}
                     ></Window>
                 )}
                 <Dock
