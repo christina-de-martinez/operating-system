@@ -73,6 +73,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 Must do: 
 
 Improvements to existing apps: 
+need to fix the componentwillmount thing
 z-index on windows - becomes top element when you cilck on the top bar of the window
 Internet browser should have frequently-visited or bookmarked sites including LinkedIn, Instagram, Twitter. 
 About section that lists how it's made (context menu when you click on the lemon icon)
