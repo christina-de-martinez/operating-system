@@ -54,9 +54,9 @@ class Window extends React.Component {
                 </WindowTopBar>
                 { this.props.browserIsOpen && <Browser />}
                 { this.props.minesweeperIsOpen && <Minesweeper />}
-                { this.props.windowType.arg === 'Map' && <Map />}
-                { this.props.windowType.arg === 'Passwords' && <Passwords />}
-                { this.props.windowType.arg === 'Instagram' && <Instagram />}
+                { this.props.mapIsOpen && <Map />}
+                { this.props.passwordsIsOpen && <Passwords />}
+                { this.props.instagramIsOpen && <Instagram />}
             </WindowContainer>
             </Rnd>
         )

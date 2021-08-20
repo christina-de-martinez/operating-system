@@ -21,7 +21,7 @@ class Dock extends React.Component {
                     <AppIcon onClick={() => {window.location.href='https://www.instagram.com/christina.codes/'}}>
                         <FontAwesomeIcon icon={faComments} alt="Instant Messenger" />
                     </AppIcon>
-                    <AppIcon onClick={() => { this.props.toggleWindow('Map') }}>
+                    <AppIcon onClick={() => { this.props.toggleWindow('Maps') }}>
                         <FontAwesomeIcon icon={faGlobeEurope} alt="Maps" />
                     </AppIcon>
                     {/* <AppIcon>
