@@ -19,43 +19,37 @@ class Desktop extends React.Component {
         this.toggleWindow = this.toggleWindow.bind(this);
     }
     toggleWindow(arg) {
-        if (!arg) {
-            console.log('no args')
-        }
-        console.log('arg')
-        console.log(arg)
         if (arg === 'Browser') {
-            console.log('browser');
             if (!this.state.browserIsOpen) { 
                 this.setState({
                     numOfWindowsOpen: this.state.numOfWindowsOpen+1,
                 })
-            } else {
+            } 
+            else {
                 this.setState({
                     numOfWindowsOpen: this.state.numOfWindowsOpen-1,
                 })
             }
             this.setState({
-                windowType: {arg},
+                windowType: arg,
                 browserIsOpen: !this.state.browserIsOpen,
             });
         } else if (arg === 'Minesweeper') {
-            console.log('minesweeper');
             if (!this.state.minesweeperIsOpen) { 
                 this.setState({
                     numOfWindowsOpen: this.state.numOfWindowsOpen+1,
                 })
-            } else {
+            } 
+            else {
                 this.setState({
                     numOfWindowsOpen: this.state.numOfWindowsOpen-1,
                 })
             }
             this.setState({
-                windowType: {arg},
+                windowType: arg,
                 minesweeperIsOpen: !this.state.minesweeperIsOpen,
             });
         } 
-        console.log(this.state)
     }
     render() {
         return (

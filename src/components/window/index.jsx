@@ -17,10 +17,9 @@ class Window extends React.Component {
     }
     componentWillMount() {
         this.setState({
-            xOffset: 160 + (this.props.numOfWindowsOpen * 10),
-            yOffset: 90 + (this.props.numOfWindowsOpen * 10)
+            xOffset: 120 + (this.props.numOfWindowsOpen * Math.random() * (60 - 30) + 30),
+            yOffset: 50 + (this.props.numOfWindowsOpen * Math.random() * (60 - 30) + 30)
         })
-        console.log(this.state);
     }
     render() {
         return (
@@ -32,8 +31,6 @@ class Window extends React.Component {
                     height: 600
                 }}
             >
-                {console.log('offset')}
-                {console.log(this.state.xOffset)}
             {/* need to have these detect which window kind and close it accordingly */}
             <WindowContainer>
                 <WindowTopBar onClick={this.offset}>
@@ -41,18 +38,17 @@ class Window extends React.Component {
                         <FontAwesomeIcon 
                             icon={faMinus} 
                             alt="Minimize" 
-                            onClick={() => { this.props.toggleWindow('Browser') }}
+                            onClick={() => { this.props.toggleWindow(this.props.windowType) }}
                         />
                     </WindowControlButton>
                     <WindowControlButton>
                         <FontAwesomeIcon 
                             icon={faTimes} 
                             alt="Close window" 
-                            onClick={() => { this.props.toggleWindow('Minesweeper') }}
+                            onClick={() => { this.props.toggleWindow(this.props.windowType) }}
                         />
                     </WindowControlButton>
                 </WindowTopBar>
-                {console.log(this.props)}
                 { this.props.browserIsOpen && <Browser />}
                 { this.props.minesweeperIsOpen && <Minesweeper />}
             </WindowContainer>
