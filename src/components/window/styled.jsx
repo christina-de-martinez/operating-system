@@ -6,6 +6,7 @@ export const WindowContainer = styled.div`
     height: 100%;
     box-sizing: border-box;
     background-color: #f1f1f1;
+    overflow: hidden;
 `;
 
 export const WindowTopBar = styled.div`

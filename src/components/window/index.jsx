@@ -17,8 +17,8 @@ class Window extends React.Component {
     }
     componentWillMount() {
         this.setState({
-            xOffset: 120 + (this.props.numOfWindowsOpen * Math.random() * (60 - 30) + 30),
-            yOffset: 50 + (this.props.numOfWindowsOpen * Math.random() * (60 - 30) + 30)
+            xOffset: 120 + (this.props.numOfWindowsOpen * Math.random() * (100 - 30) + 30),
+            yOffset: 50 + (this.props.numOfWindowsOpen * Math.random() * (100 - 30) + 30)
         })
     }
     render() {
