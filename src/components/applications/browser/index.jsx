@@ -6,7 +6,7 @@ function Browser() {
         <>
             {/* <BrowserIframe src="http://example.com"></BrowserIframe> */}
             <Container>
-                <Title>Hello</Title>
+                <Title>Welcome</Title>
                 <BookmarksContainer>
                     <Bookmark>
                         <img src="https://via.placeholder.com/150" alt="#" />
