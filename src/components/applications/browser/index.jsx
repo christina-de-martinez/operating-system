@@ -6,7 +6,6 @@ function Browser() {
         <>
             {/* <BrowserIframe src="http://example.com"></BrowserIframe> */}
             <Container>
-                <p>Will need to add an input here like the box where the url goes, but how to make it work?</p>
                 <Title>Hello</Title>
                 <BookmarksContainer>
                     <Bookmark>

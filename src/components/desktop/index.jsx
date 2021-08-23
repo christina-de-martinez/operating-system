@@ -22,7 +22,6 @@ class Desktop extends React.Component {
         this.toggleWindow = this.toggleWindow.bind(this);
     }
     toggleWindow(arg) {
-        console.log(this.state)
         if (arg === 'Browser') {
             if (!this.state.browserIsOpen) { 
                 this.setState({
@@ -161,6 +160,11 @@ class Desktop extends React.Component {
                    windowIsOpen={this.state.windowIsOpen}
                    toggleWindow={this.toggleWindow} 
                    mailToLink={this.mailToLink}
+                   browserIsOpen={this.state.browserIsOpen}
+                   minesweeperIsOpen={this.state.minesweeperIsOpen}
+                   passwordsIsOpen={this.state.passwordsIsOpen}
+                   mapsIsOpen={this.state.mapsIsOpen}
+                   instagramIsOpen={this.state.instagramIsOpen}
                 ></Dock>
             </Background>
         )

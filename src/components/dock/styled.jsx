@@ -22,6 +22,26 @@ export const DockParent = styled.div`
     width: 90%;
     border: 2px solid #000;
     padding: 8px;
+    padding-bottom: 2px;
+`;
+
+export const AppIconAndDot = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: #736F72;
+    text-align: center;
+    font-size: 8px;
+    height: 74px;
+    &first-child {
+        background-color: hotpink;
+    }
+`;
+
+export const Dot = styled.div`
+    margin-top: 2px;
+    width: 100%;
 `;
 
 export const AppIcon = styled.button`
@@ -34,23 +54,4 @@ export const AppIcon = styled.button`
     font-size: 30px;
     margin: 0 3px;
     color: #fff;
-    &:first-child {
-        background-color: #9CE4FC;
-    }
-    &:nth-child(2),
-    &:nth-child(7) {
-        background-color: #C5A8F0;
-    }
-    &:nth-child(3) {
-        background-color: #FFC299;
-    }
-    &:nth-child(4) {
-        background-color: #CAE3A0;
-    }
-    &:nth-child(5) {
-        background-color: #FFF192;
-    }
-    &:nth-child(6) {
-        background-color: #FCB0BE;
-    }
 `;
