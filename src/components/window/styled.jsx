@@ -6,7 +6,7 @@ export const WindowContainer = styled.div`
     height: 100%;
     box-sizing: border-box;
     background-color: #f1f1f1;
-    overflow: hidden;
+    overflow: scroll;
 `;
 
 export const WindowTopBar = styled.div`
@@ -29,4 +29,11 @@ export const WindowControlButton = styled.button`
     &:nth-child(2) {
         margin-right: 6px;
     }
+`;
+
+export const BrowserInput = styled.input`
+    width: 100%;
+    margin: 0 20px;
+    border-radius: 40px;
+    padding: 0 16px;
 `;

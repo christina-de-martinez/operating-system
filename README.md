@@ -73,7 +73,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 Must do: 
 
 Improvements to existing apps: 
+need to fix the componentwillmount thing
 z-index on windows - becomes top element when you cilck on the top bar of the window
+Remove Instagram component or use api to get it to show correctly
+The X and minimize buttons aren't reliably closing the right windows
+Add portfolio with other projects
 Internet browser should have frequently-visited or bookmarked sites including LinkedIn, Instagram, Twitter. 
 About section that lists how it's made (context menu when you click on the lemon icon)
 

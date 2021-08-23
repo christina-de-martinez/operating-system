@@ -17,3 +17,22 @@
     position: relative;
     top: 2px;
 }
+
+.appicon-purple {
+    background-color: #C5A8F0;
+}
+.appicon-blue {
+    background-color: #9CE4FC;
+}
+.appicon-orange {
+    background-color: #FFC299;
+}
+.appicon-green {
+    background-color: #CAE3A0;
+}
+.appicon-yellow {
+    background-color: #FFF192;
+}
+.appicon-pink {
+    background-color: #FCB0BE;
+}

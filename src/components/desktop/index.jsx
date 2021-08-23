@@ -11,9 +11,12 @@ class Desktop extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            windowType: 'Minesweeper',
-            browserIsOpen: false,
-            minesweeperIsOpen: true, 
+            windowType: 'Browser',
+            browserIsOpen: true,
+            minesweeperIsOpen: false,
+            mapsIsOpen: false,
+            passwordsIsOpen: false,
+            instagramIsOpen: false,
             numOfWindowsOpen: 1,
         }
         this.toggleWindow = this.toggleWindow.bind(this);
@@ -48,6 +51,38 @@ class Desktop extends React.Component {
             this.setState({
                 windowType: arg,
                 minesweeperIsOpen: !this.state.minesweeperIsOpen,
+            });
+        } 
+        else if (arg === 'Passwords') {
+            if (!this.state.passwordsIsOpen) { 
+                this.setState({
+                    numOfWindowsOpen: this.state.numOfWindowsOpen+1,
+                })
+            } 
+            else {
+                this.setState({
+                    numOfWindowsOpen: this.state.numOfWindowsOpen-1,
+                })
+            }
+            this.setState({
+                windowType: arg,
+                passwordsIsOpen: !this.state.passwordsIsOpen,
+            });
+        } 
+        else if (arg === 'Maps' || arg === 'Map') {
+            if (!this.state.mapsIsOpen) { 
+                this.setState({
+                    numOfWindowsOpen: this.state.numOfWindowsOpen+1,
+                })
+            } 
+            else {
+                this.setState({
+                    numOfWindowsOpen: this.state.numOfWindowsOpen-1,
+                })
+            }
+            this.setState({
+                windowType: arg,
+                mapsIsOpen: !this.state.mapsIsOpen,
             });
         } 
     }
@@ -97,10 +132,39 @@ class Desktop extends React.Component {
                         numOfWindowsOpen={this.state.numOfWindowsOpen}
                     ></Window>
                 )}
+                {this.state.passwordsIsOpen && (
+                    <Window
+                        toggleWindow={this.toggleWindow}
+                        windowType={this.state.windowType}
+                        passwordsIsOpen={this.state.passwordsIsOpen}
+                        numOfWindowsOpen={this.state.numOfWindowsOpen}
+                    ></Window>
+                )}
+                {this.state.mapsIsOpen && (
+                    <Window
+                        toggleWindow={this.toggleWindow}
+                        windowType={this.state.windowType}
+                        mapsIsOpen={this.state.mapsIsOpen}
+                        numOfWindowsOpen={this.state.numOfWindowsOpen}
+                    ></Window>
+                )}
+                {this.state.instagramIsOpen && (
+                    <Window
+                        toggleWindow={this.toggleWindow}
+                        windowType={this.state.windowType}
+                        instagramIsOpen={this.state.instagramIsOpen}
+                        numOfWindowsOpen={this.state.numOfWindowsOpen}
+                    ></Window>
+                )}
                 <Dock
                    windowIsOpen={this.state.windowIsOpen}
                    toggleWindow={this.toggleWindow} 
                    mailToLink={this.mailToLink}
+                   browserIsOpen={this.state.browserIsOpen}
+                   minesweeperIsOpen={this.state.minesweeperIsOpen}
+                   passwordsIsOpen={this.state.passwordsIsOpen}
+                   mapsIsOpen={this.state.mapsIsOpen}
+                   instagramIsOpen={this.state.instagramIsOpen}
                 ></Dock>
             </Background>
         )
