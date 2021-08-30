@@ -124,14 +124,14 @@ class Desktop extends React.Component {
                         numOfWindowsOpen={this.state.numOfWindowsOpen}
                     ></Window>
                 )}
-                {this.state.minesweeperIsOpen && (
+                {/* {this.state.minesweeperIsOpen && (
                     <Window
                         toggleWindow={this.toggleWindow}
                         windowType={this.state.windowType}
                         minesweeperIsOpen={this.state.minesweeperIsOpen}
                         numOfWindowsOpen={this.state.numOfWindowsOpen}
                     ></Window>
-                )}
+                )} */}
                 {this.state.passwordsIsOpen && (
                     <Window
                         toggleWindow={this.toggleWindow}
