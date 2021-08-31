@@ -29,8 +29,8 @@ class Window extends React.Component {
                 default={{
                     x: this.state.xOffset,
                     y: this.state.yOffset,
-                    width: 800,
-                    height: 600
+                    width: 1000,
+                    height: 800
                 }}
             >
             {/* need to have these detect which window kind and close it accordingly */}

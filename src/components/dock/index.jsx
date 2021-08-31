@@ -45,12 +45,12 @@ class Dock extends React.Component {
                     <AppIcon>
                         <FontAwesomeIcon icon={faJira} alt="Jira" />
                     </AppIcon> */}
-                    <AppIconAndDot>
+                    {/* <AppIconAndDot>
                         <AppIcon className="appicon-pink" onClick={() => { this.props.toggleWindow('Minesweeper') }}>
                             <FontAwesomeIcon icon={faBomb} alt="Minesweeper" />
                         </AppIcon>
                         {this.props.minesweeperIsOpen && <Dot><FontAwesomeIcon icon={faCircle} alt="Minesweeper is open" /></Dot>}
-                    </AppIconAndDot>
+                    </AppIconAndDot> */}
                 </DockParent>
             </DockContainer>
         )
