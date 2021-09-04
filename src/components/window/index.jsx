@@ -14,7 +14,8 @@ class Window extends React.Component {
         super(props);
         this.state = {
             xOffset: 160,
-            yOffset: 90
+            yOffset: 90,
+            zIndex: this.props.zIndex
         }
     }
     componentWillMount() {
@@ -32,6 +33,9 @@ class Window extends React.Component {
                     width: 1000,
                     height: 800
                 }}
+                style={{
+                    zIndex: this.state.zIndex
+                }}
             >
             {/* need to have these detect which window kind and close it accordingly */}
             <WindowContainer>
@@ -43,8 +47,6 @@ class Window extends React.Component {
                             alt="Minimize" 
                             onClick={() => { this.props.toggleWindow(this.props.windowKind) }}
                         />
-                        {console.log('this')}
-                        {console.log(this.props)}
                     </WindowControlButton>
                     <WindowControlButton>
                         <FontAwesomeIcon 

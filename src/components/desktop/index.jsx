@@ -18,6 +18,7 @@ class Desktop extends React.Component {
             passwordsIsOpen: false,
             instagramIsOpen: false,
             numOfWindowsOpen: 1,
+            zIndex: 5
         }
         this.toggleWindow = this.toggleWindow.bind(this);
     }
@@ -26,7 +27,9 @@ class Desktop extends React.Component {
             if (!this.state.browserIsOpen) { 
                 this.setState({
                     numOfWindowsOpen: this.state.numOfWindowsOpen+1,
+                    zIndex: this.state.zIndex + 5,
                 })
+                console.log('z index' + this.state.zIndex)
             } 
             else {
                 this.setState({
@@ -34,7 +37,6 @@ class Desktop extends React.Component {
                 })
             }
             this.setState({
-                windowType: arg,
                 browserIsOpen: !this.state.browserIsOpen,
             });
         } else if (arg === 'Minesweeper') {
@@ -49,7 +51,6 @@ class Desktop extends React.Component {
                 })
             }
             this.setState({
-                windowType: arg,
                 minesweeperIsOpen: !this.state.minesweeperIsOpen,
             });
         } 
@@ -65,7 +66,6 @@ class Desktop extends React.Component {
                 })
             }
             this.setState({
-                windowType: arg,
                 passwordsIsOpen: !this.state.passwordsIsOpen,
             });
         } 
@@ -81,7 +81,6 @@ class Desktop extends React.Component {
                 })
             }
             this.setState({
-                windowType: arg,
                 mapsIsOpen: !this.state.mapsIsOpen,
             });
         } 
@@ -119,7 +118,6 @@ class Desktop extends React.Component {
                 {this.state.browserIsOpen && (
                     <Window
                         toggleWindow={this.toggleWindow}
-                        windowType={this.state.windowType}
                         windowKind={'Browser'}
                         browserIsOpen={this.state.browserIsOpen}
                         numOfWindowsOpen={this.state.numOfWindowsOpen}
@@ -128,7 +126,6 @@ class Desktop extends React.Component {
                 {/* {this.state.minesweeperIsOpen && (
                     <Window
                         toggleWindow={this.toggleWindow}
-                        windowType={this.state.windowType}
                         minesweeperIsOpen={this.state.minesweeperIsOpen}
                         numOfWindowsOpen={this.state.numOfWindowsOpen}
                     ></Window>
@@ -136,7 +133,7 @@ class Desktop extends React.Component {
                 {this.state.passwordsIsOpen && (
                     <Window
                         toggleWindow={this.toggleWindow}
-                        windowType={this.state.windowType}
+                        windowKind={'Passwords'}
                         passwordsIsOpen={this.state.passwordsIsOpen}
                         numOfWindowsOpen={this.state.numOfWindowsOpen}
                     ></Window>
@@ -144,7 +141,6 @@ class Desktop extends React.Component {
                 {this.state.mapsIsOpen && (
                     <Window
                         toggleWindow={this.toggleWindow}
-                        windowType={this.state.windowType}
                         windowKind={'Maps'}
                         mapsIsOpen={this.state.mapsIsOpen}
                         numOfWindowsOpen={this.state.numOfWindowsOpen}
@@ -153,7 +149,7 @@ class Desktop extends React.Component {
                 {this.state.instagramIsOpen && (
                     <Window
                         toggleWindow={this.toggleWindow}
-                        windowType={this.state.windowType}
+                        windowKind={'Instagram'}
                         instagramIsOpen={this.state.instagramIsOpen}
                         numOfWindowsOpen={this.state.numOfWindowsOpen}
                     ></Window>
