@@ -41,14 +41,16 @@ class Window extends React.Component {
                         <FontAwesomeIcon 
                             icon={faMinus} 
                             alt="Minimize" 
-                            onClick={() => { this.props.toggleWindow(this.props.windowType) }}
+                            onClick={() => { this.props.toggleWindow(this.props.windowKind) }}
                         />
+                        {console.log('this')}
+                        {console.log(this.props)}
                     </WindowControlButton>
                     <WindowControlButton>
                         <FontAwesomeIcon 
                             icon={faTimes} 
                             alt="Close window" 
-                            onClick={() => { this.props.toggleWindow(this.props.windowType) }}
+                            onClick={() => { this.props.toggleWindow(this.props.windowKind) }}
                         />
                     </WindowControlButton>
                 </WindowTopBar>

@@ -120,6 +120,7 @@ class Desktop extends React.Component {
                     <Window
                         toggleWindow={this.toggleWindow}
                         windowType={this.state.windowType}
+                        windowKind={'Browser'}
                         browserIsOpen={this.state.browserIsOpen}
                         numOfWindowsOpen={this.state.numOfWindowsOpen}
                     ></Window>
@@ -144,6 +145,7 @@ class Desktop extends React.Component {
                     <Window
                         toggleWindow={this.toggleWindow}
                         windowType={this.state.windowType}
+                        windowKind={'Maps'}
                         mapsIsOpen={this.state.mapsIsOpen}
                         numOfWindowsOpen={this.state.numOfWindowsOpen}
                     ></Window>
