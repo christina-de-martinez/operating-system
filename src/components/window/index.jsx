@@ -7,6 +7,7 @@ import { faMinus, faTimes } from '@fortawesome/free-solid-svg-icons';
 import Browser from '../applications/browser/index';
 import Minesweeper from '../applications/minesweeper/index';
 import Map from '../applications/map/index';
+import Spotify from '../applications/spotify/index';
 import Passwords from '../applications/passwords/index';
 
 class Window extends React.Component {
@@ -43,8 +44,6 @@ class Window extends React.Component {
                             alt="Minimize" 
                             onClick={() => { this.props.toggleWindow(this.props.windowKind) }}
                         />
-                        {console.log('this')}
-                        {console.log(this.props)}
                     </WindowControlButton>
                     <WindowControlButton>
                         <FontAwesomeIcon 
@@ -57,6 +56,7 @@ class Window extends React.Component {
                 { this.props.browserIsOpen && <Browser />}
                 { this.props.minesweeperIsOpen && <Minesweeper />}
                 { this.props.mapsIsOpen && <Map />}
+                { this.props.spotifyIsOpen && <Spotify />}
                 { this.props.passwordsIsOpen && <Passwords />}
             </WindowContainer>
             </Rnd>
