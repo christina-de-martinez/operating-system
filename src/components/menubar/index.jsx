@@ -3,7 +3,7 @@ import { Bar, MenuLeft, MenuRight, MenuIcon, DateTimeText } from './styled';
 import MenuDropdown from '../menudropdown/index'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLemon, faWifi, faGlobeEurope } from '@fortawesome/free-solid-svg-icons'
+import { faLemon, faWifi } from '@fortawesome/free-solid-svg-icons'
 
 var getCurrentDate = () => {
     let now = new Date();
@@ -19,6 +19,7 @@ var getCurrentTime = () => {
     return time;
 }
 var toggleDropdown = () => {
+    // prevent default
     // this.setState({
     //     dropdownIsOpen: !this.state.dropdownIsOpen,
     // });

@@ -33,9 +33,14 @@ export const AppIconAndDot = styled.div`
     color: #736F72;
     text-align: center;
     font-size: 8px;
-    height: 74px;
     &first-child {
         background-color: hotpink;
+    }
+    @media (min-width: 401px) {
+        height: 74px;
+    }
+    @media (max-width: 400px) {
+        height: 53px;
     }
 `;
 
@@ -49,9 +54,16 @@ export const AppIcon = styled.button`
     align-items: center;
     justify-content: center;
     border: 2px solid #736F72;
-    width: 60px;
-    height: 60px;
-    font-size: 30px;
     margin: 0 3px;
     color: #fff;
+    @media (min-width: 401px) {
+        height: 60px;
+        width: 60px;
+        font-size: 30px;
+    }
+    @media (max-width: 400px) {
+        height: 40px;
+        width: 40px;
+        font-size: 24px;
+    }
 `;
