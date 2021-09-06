@@ -14,15 +14,36 @@ class Window extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            xOffset: 160,
-            yOffset: 90
+            xOffset: 70,
+            yOffset: 50,
+            width: '70%',
+            height: '70%'
         }
     }
     componentWillMount() {
-        this.setState({
-            xOffset: 120 + (this.props.numOfWindowsOpen * Math.random() * (100 - 30) + 30),
-            yOffset: 50 + (this.props.numOfWindowsOpen * Math.random() * (100 - 30) + 30)
-        })
+        console.log(window.innerWidth);
+        if (window.innerWidth >= 1350) {
+            this.setState({
+                xOffset: 60 + (this.props.numOfWindowsOpen * Math.random() * (100 - 30) + 30),
+                yOffset: 50 + (this.props.numOfWindowsOpen * Math.random() * (100 - 30) + 30),
+                width: '80%',
+                height: '70%'
+            })
+        } else if (window.innerWidth >= 767) {
+            this.setState({
+                xOffset: 10 + (this.props.numOfWindowsOpen * Math.random() * (50 - 30) + 30),
+                yOffset: 10 + (this.props.numOfWindowsOpen * Math.random() * (50 - 30) + 30),
+                width: '90%',
+                height: '80%'
+            })
+        } else {
+            this.setState({
+                xOffset: 10 + (this.props.numOfWindowsOpen * Math.random() * (20 - 10) + 10),
+                yOffset: 35 + (this.props.numOfWindowsOpen * Math.random() * (20 - 10) + 10),
+                width: '95%',
+                height: '80%'
+            })
+        }
     }
     render() {
         return (
@@ -30,8 +51,8 @@ class Window extends React.Component {
                 default={{
                     x: this.state.xOffset,
                     y: this.state.yOffset,
-                    width: '70%',
-                    height: '70%'
+                    width: this.state.width,
+                    height: this.state.height
                 }}
             >
             <WindowContainer>

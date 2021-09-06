@@ -3,24 +3,43 @@ import styled from 'styled-components';
 export const Container = styled.div`
     width: 100%;
     display: flex;
-    flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
     background-color: #000;
     overflow-x: hidden;
     height: 80vh;
     overflow-y: hidden;
+    @media (min-width: 551px) {
+        flex-direction: row;
+    }
+    @media (max-width: 550px) {
+        flex-direction: column;
+    }
 `;
 
 export const Sidebar = styled.div`
     width: 100%;
-    max-width: 150px;
     padding: 10px;
     height: 100%;
+    @media (min-width: 1001px) {
+        max-width: 150px;
+    }
+    @media (max-width: 1000px) {
+        max-width: 120px;
+    }
+    @media (min-width: 551px) {
+        display: block;
+    }
+    @media (max-width: 550px) {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        max-width: 100%;
+    }
 `;
 
 export const SidebarMainItem = styled.button`
-    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -30,6 +49,9 @@ export const SidebarMainItem = styled.button`
     border-radius: 5px;
     &:hover, &:active {
         color: #fff;
+    }
+    @media (min-width: 551px) {
+        width: 100%;
     }
 `;
 
@@ -41,32 +63,51 @@ export const SidebarText = styled.p`
     color: rgb(179, 179, 179);
     border: transparent;
     background-color: transparent;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
     &:hover {
         color: #fff;
+    }
+    @media (max-width: 550px) {
+        padding: 0;
+        margin: 0;
+        margin-left: 6px;
     }
 `;
 
 export const HR = styled.hr`
     width: 100%;
     margin: 10px 0;
-    background-color: hotpink;
+    height: 1px;
+    background-color: #fff;
+    @media (max-width: 550px) {
+        display: none;
+    }
 `;
 
 export const SidebarPlaylist = styled.a`
     color: rgb(179, 179, 179);
-    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
     text-decoration: none;
     background-color: transparent;
     border: 0px transparent;
     font-size: 16px;
     text-align: left;
+    display: block;
     &:hover, &:active {
         color: #fff;
+    }
+    @media (min-width: 551px) {
+        margin-bottom: 12px;
+    }
+    @media (max-width: 550px) {
+        margin: 0 8px;
     }
 `;
 
 export const Main = styled.section`
-position: relative;
+    position: relative;
     background-color: #000;
     background-image: url('https://i.imgur.com/vysZpjO.jpg');
     backdrop-filter: opacity(0.2);
@@ -105,7 +146,8 @@ export const ContactButton = styled.a`
     background-color: #fff;
     text-decoration: none;
     color: #000;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    font-family: Roboto, Oxygen, Ubuntu, 'Helvetica Neue', helvetica, sans-serif;
     font-weight: bold;
     border-radius: 40px;
     border: 1px transparent;
@@ -128,6 +170,7 @@ export const ArtistName = styled.h1`
     font-size: 64px;
     color: #fff;
     margin: 0;
+    letter-spacing: 0.9;
     font-family: Roboto, Oxygen, Ubuntu, 'Helvetica Neue', helvetica, sans-serif;
     font-weight: bold;
 `;
@@ -159,10 +202,19 @@ export const MainPlaylistSection = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 30px 20px;
     background-image: linear-gradient(#4F4C46 0, rgba(0,0,0,0.6) 80%);
-    height: 400px;
     overflow-y: scroll;
+    @media (min-width: 768px) {
+        height: 400px;
+        padding: 30px 20px;
+    }
+    @media (max-width: 767px) {
+        height: 600px;
+        padding: 20px;
+    }
+    @media (max-width: 600px) {
+        padding: 10px;
+    }
 `;
 
 export const PlaylistHeader = styled.h1`
@@ -233,8 +285,17 @@ export const PopularTitle = styled.p`
 export const Tech = styled.p`
     color: rgb(179, 179, 179);
     font-size: 16px;
-    max-width: 400px;
     text-align: right;
+    margin-left: 12px;
+    @media (min-width: 768px) {
+        max-width: 400px;
+    }
+    @media (max-width: 767px) {
+        max-width: 180px;
+    }
+    @media (max-width: 660px) {
+        display: none;
+    }
 `;
 
 export const PopularMain = styled.div`
