@@ -60,7 +60,7 @@ function Spotify() {
                 <MainPlaylistSection>
                     <FlexColAlignTopLeft>
                         <PlaylistHeader>
-                            Popular
+                            Projects I'm Proud Of
                         </PlaylistHeader>
                         <PopularHolder>
                             <PopularItem href="https://logos.com" target="_blank">

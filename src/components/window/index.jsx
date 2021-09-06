@@ -34,7 +34,6 @@ class Window extends React.Component {
                     height: '70%'
                 }}
             >
-            {/* need to have these detect which window kind and close it accordingly */}
             <WindowContainer>
                 <WindowTopBar onClick={this.offset}>
                     {this.props.browserIsOpen && <BrowserInput type='text/css' value='https://christinacodes.dev' readOnly={true}></BrowserInput>}

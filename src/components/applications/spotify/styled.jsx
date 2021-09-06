@@ -29,11 +29,11 @@ export const SidebarMainItem = styled.button`
     border: 2px solid transparent;
     border-radius: 5px;
     &:hover, &:active {
-        background-color: pink;
+        color: #fff;
     }
 `;
 
-export const SidebarText = styled.button`
+export const SidebarText = styled.p`
     margin: 0 12px 0;
     font-size: 16px;
     width: 80%;
@@ -110,8 +110,9 @@ export const ContactButton = styled.a`
     border-radius: 40px;
     border: 1px transparent;
     padding: 16px 32px;
+    box-shadow: 0 1px 5px 0 rgba(110, 131, 183, 0.2), 0 3px 1px -2px rgba(110, 131, 183, 0.12), 0 2px 2px 0 rgba(110, 131, 183, 0.14);
     &:hover {
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
 `;
 

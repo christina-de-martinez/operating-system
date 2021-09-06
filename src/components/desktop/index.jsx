@@ -11,7 +11,7 @@ class Desktop extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            windowType: 'Browser',
+            windowType: 'Spotify',
             browserIsOpen: false,
             minesweeperIsOpen: false,
             mapsIsOpen: false,
@@ -99,7 +99,7 @@ class Desktop extends React.Component {
             }
             this.setState({
                 windowType: arg,
-                mapsIsOpen: !this.state.spotifyIsOpen,
+                spotifyIsOpen: !this.state.spotifyIsOpen,
             });
         } 
     }
@@ -154,6 +154,7 @@ class Desktop extends React.Component {
                     <Window
                         toggleWindow={this.toggleWindow}
                         windowType={this.state.windowType}
+                        windowKind={'Passwords'}
                         passwordsIsOpen={this.state.passwordsIsOpen}
                         numOfWindowsOpen={this.state.numOfWindowsOpen}
                     ></Window>
