@@ -21,7 +21,6 @@ class Window extends React.Component {
         }
     }
     componentWillMount() {
-        console.log(window.innerWidth);
         if (window.innerWidth >= 1350) {
             this.setState({
                 xOffset: 60 + (this.props.numOfWindowsOpen * Math.random() * (100 - 30) + 30),
@@ -36,9 +35,16 @@ class Window extends React.Component {
                 width: '90%',
                 height: '80%'
             })
+        } else if (window.innerWidth >= 500) {
+            this.setState({
+                xOffset: 0 + (this.props.numOfWindowsOpen * Math.random() * (20 - 10) + 10),
+                yOffset: 35 + (this.props.numOfWindowsOpen * Math.random() * (20 - 10) + 10),
+                width: '90%',
+                height: '80%'
+            })
         } else {
             this.setState({
-                xOffset: 10 + (this.props.numOfWindowsOpen * Math.random() * (20 - 10) + 10),
+                xOffset: 0 + (this.props.numOfWindowsOpen * Math.random() * (10 - 5) + 5),
                 yOffset: 35 + (this.props.numOfWindowsOpen * Math.random() * (20 - 10) + 10),
                 width: '95%',
                 height: '80%'

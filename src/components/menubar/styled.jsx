@@ -22,7 +22,7 @@ export const MenuIcon = styled.button`
 `;
 
 export const MenuLeft = styled.div`
-    width: 300px;
+    max-width: 300px;
     margin-left: 10px;
 `;
 

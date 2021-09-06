@@ -133,7 +133,7 @@ class Desktop extends React.Component {
                         Professional Stuff
                     </Icon> */}
                 </IconGrid>
-                {this.state.browserIsOpen && (
+                {/* {this.state.browserIsOpen && (
                     <Window
                         toggleWindow={this.toggleWindow}
                         windowType={this.state.windowType}
@@ -141,7 +141,7 @@ class Desktop extends React.Component {
                         browserIsOpen={this.state.browserIsOpen}
                         numOfWindowsOpen={this.state.numOfWindowsOpen}
                     ></Window>
-                )}
+                )} */}
                 {/* {this.state.minesweeperIsOpen && (
                     <Window
                         toggleWindow={this.toggleWindow}

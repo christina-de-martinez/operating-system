@@ -6,9 +6,9 @@ export const Container = styled.div`
     align-items: flex-start;
     justify-content: flex-start;
     background-color: #000;
-    overflow-x: hidden;
     height: 80vh;
     overflow-y: hidden;
+    overflow-x: hidden;
     @media (min-width: 551px) {
         flex-direction: row;
     }

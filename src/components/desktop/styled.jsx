@@ -7,12 +7,18 @@ export const Container = styled.div`
 `;
 
 export const Background = styled.div`
-    width: 100vw;
-    height: 100vh;
     background-color: #FCC5D1;
     margin: 0;
     position: absolute;
     z-index: 0;
+    @media (max-width: 600px) {
+        width: 104vw;
+        height: 104vh;
+    }
+    @media (min-width: 601px) {
+        width: 100%;
+        height: 100%;
+    }
 `;
 
 export const IconGrid = styled.div`

@@ -8,13 +8,15 @@ class Dock extends React.Component {
     render() {
         return (
             <DockContainer>
+                {console.log("%cWelcome to my portfolio site.","color: hotpink; background-color: #444; font-size: 24px; font-family: sans-serif")}
+                {console.log("%cIf you're here, it's probably because you're interested in what my code looks like. I'm happy to share!\nThis is a web app built with React. You can see the code here: https://github.com/christinahouck/operating-system \nAll rights reserved. If you're planning on using any part of this I'd love to know. Just send me a message.","color: #f1f1f1; background-color: #444;font-size: 14px; font-family: sans-serif")}")}
                 <DockParent>
-                    <AppIconAndDot>
+                    {/* <AppIconAndDot>
                         <AppIcon className="appicon-blue" onClick={() => { this.props.toggleWindow('Browser') }}>
                             <FontAwesomeIcon icon={faHatWizard} alt="Browser" />
                         </AppIcon>
                         {this.props.browserIsOpen && <Dot><FontAwesomeIcon icon={faCircle} alt="Browser is open" /></Dot>}
-                    </AppIconAndDot>
+                    </AppIconAndDot> */}
                     <AppIconAndDot>
                         <AppIcon className="appicon-purple" onClick={() => {window.location.href='https://github.com/christinahouck'}}>
                             <FontAwesomeIcon icon={faGithubAlt} alt="GitHub" />
@@ -28,7 +30,7 @@ class Dock extends React.Component {
                         {this.props.emailIsOpen && <Dot><FontAwesomeIcon icon={faCircle} alt="Email is open" /></Dot>}
                     </AppIconAndDot>
                     <AppIconAndDot>
-                        <AppIcon className="appicon-green" onClick={() => {window.location.href='https://www.instagram.com/christina.codes/'}}>
+                        <AppIcon className="appicon-blue" onClick={() => {window.location.href='https://www.instagram.com/christina.codes/'}}>
                             <FontAwesomeIcon icon={faComments} alt="Instant Messenger" />
                         </AppIcon>
                         {this.props.messengerIsOpen && <Dot><FontAwesomeIcon icon={faCircle} alt="Messenger is open" /></Dot>}
