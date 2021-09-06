@@ -7,6 +7,7 @@ import { faMinus, faTimes } from '@fortawesome/free-solid-svg-icons';
 import Browser from '../applications/browser/index';
 import Minesweeper from '../applications/minesweeper/index';
 import Map from '../applications/map/index';
+import Spotify from '../applications/spotify/index';
 import Passwords from '../applications/passwords/index';
 
 class Window extends React.Component {
@@ -29,11 +30,10 @@ class Window extends React.Component {
                 default={{
                     x: this.state.xOffset,
                     y: this.state.yOffset,
-                    width: 1000,
-                    height: 800
+                    width: '70%',
+                    height: '70%'
                 }}
             >
-            {/* need to have these detect which window kind and close it accordingly */}
             <WindowContainer>
                 <WindowTopBar onClick={this.offset}>
                     {this.props.browserIsOpen && <BrowserInput type='text/css' value='https://christinacodes.dev' readOnly={true}></BrowserInput>}
@@ -43,8 +43,6 @@ class Window extends React.Component {
                             alt="Minimize" 
                             onClick={() => { this.props.toggleWindow(this.props.windowKind) }}
                         />
-                        {console.log('this')}
-                        {console.log(this.props)}
                     </WindowControlButton>
                     <WindowControlButton>
                         <FontAwesomeIcon 
@@ -57,6 +55,7 @@ class Window extends React.Component {
                 { this.props.browserIsOpen && <Browser />}
                 { this.props.minesweeperIsOpen && <Minesweeper />}
                 { this.props.mapsIsOpen && <Map />}
+                { this.props.spotifyIsOpen && <Spotify />}
                 { this.props.passwordsIsOpen && <Passwords />}
             </WindowContainer>
             </Rnd>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { DockContainer, DockParent, AppIconAndDot, Dot, AppIcon } from './styled';
-import { faGithubAlt, faJira } from '@fortawesome/free-brands-svg-icons'
+import { faGithubAlt, faJira, faSpotify } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHatWizard, faSmile, faGlobeEurope, faAt, faComments, faBomb, faCircle } from '@fortawesome/free-solid-svg-icons';
 
@@ -38,6 +38,12 @@ class Dock extends React.Component {
                             <FontAwesomeIcon icon={faGlobeEurope} alt="Maps" />
                         </AppIcon>
                         {this.props.mapsIsOpen && <Dot><FontAwesomeIcon icon={faCircle} alt="Maps is open" /></Dot>}
+                    </AppIconAndDot>
+                    <AppIconAndDot>
+                        <AppIcon className="appicon-green" onClick={() => { this.props.toggleWindow('Spotify') }}>
+                            <FontAwesomeIcon icon={faSpotify} alt="Spotify" />
+                        </AppIcon>
+                        {this.props.spotifyIsOpen && <Dot><FontAwesomeIcon icon={faCircle} alt="Spotify is open" /></Dot>}
                     </AppIconAndDot>
                     {/* <AppIcon>
                         <FontAwesomeIcon icon={faSmile} alt="Contacts" />
