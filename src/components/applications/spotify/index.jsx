@@ -22,7 +22,7 @@ import { Container,
     Number,
     PopularTitle, 
     PopularMain, 
-    Tech,
+    Tech
 } from './styled';  
 
 function Spotify() {
@@ -38,7 +38,7 @@ function Spotify() {
                 </SidebarMainItem>
                 <HR />
                 <SidebarPlaylist href="https://open.spotify.com/playlist/6w0jM3WYLWgXSIAww0Clv6?si=cc48172b533d48e0" target="_blank">Why you should hire me</SidebarPlaylist>
-                <SidebarPlaylist href="#" target="_blank">My Résumé</SidebarPlaylist>
+                <SidebarPlaylist href="https://www.linkedin.com/in/christinademartinez/" target="_blank">My Résumé</SidebarPlaylist>
             </Sidebar>
             <MainContainer>
                 <Main>
