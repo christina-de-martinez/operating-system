@@ -43,7 +43,7 @@ export const SidebarMainItem = styled.button`
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     background-color: transparent;
     border: 2px solid transparent;
     border-radius: 5px;
@@ -52,6 +52,15 @@ export const SidebarMainItem = styled.button`
     }
     @media (min-width: 551px) {
         width: 100%;
+    }
+    @media (max-width: 550px) {
+        padding: 0;
+    }
+`;
+
+export const SVG = styled.svg`
+    @media (max-width: 550px) {
+        margin-top: -2px;
     }
 `;
 
@@ -151,10 +160,17 @@ export const ContactButton = styled.a`
     font-weight: bold;
     border-radius: 40px;
     border: 1px transparent;
-    padding: 16px 32px;
     box-shadow: 0 1px 5px 0 rgba(110, 131, 183, 0.2), 0 3px 1px -2px rgba(110, 131, 183, 0.12), 0 2px 2px 0 rgba(110, 131, 183, 0.14);
     &:hover {
         transform: scale(1.05);
+    }
+    @media (min-width: 501px) {
+        font-size: 18px;
+        padding: 16px 32px;
+    }
+    @media (max-width: 500px) {
+        font-size: 14px;
+        padding: 8px 16px;
     }
 `;
 
@@ -167,12 +183,18 @@ export const ArtistSection = styled.div`
 `;
 
 export const ArtistName = styled.h1`
-    font-size: 64px;
     color: #fff;
     margin: 0;
     letter-spacing: 0.9;
     font-family: Roboto, Oxygen, Ubuntu, 'Helvetica Neue', helvetica, sans-serif;
     font-weight: bold;
+    line-height: 1.2;
+    @media (min-width: 501px) {
+        font-size: 64px;
+    }
+    @media (max-width: 500px) {
+        font-size: 34px;
+    }
 `;
 
 export const ArtistBadgeSect = styled.div`
@@ -223,6 +245,12 @@ export const PlaylistHeader = styled.h1`
     color: #fff;
     margin: 0;
     padding: 0 0 24px 0;
+    @media (min-width: 501px) {
+        font-size: 36px;
+    }
+    @media (max-width: 500px) {
+        font-size: 24px;
+    }
 `;
 
 export const FlexColAlignTopLeft = styled.div`
