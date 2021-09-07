@@ -44,9 +44,9 @@ class Window extends React.Component {
             })
         } else {
             this.setState({
-                xOffset: 0 + (this.props.numOfWindowsOpen * Math.random() * (10 - 5) + 5),
-                yOffset: 35 + (this.props.numOfWindowsOpen * Math.random() * (20 - 10) + 10),
-                width: '95%',
+                xOffset: 0,
+                yOffset: 40,
+                width: '96%',
                 height: '80%'
             })
         }
