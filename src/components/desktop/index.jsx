@@ -11,13 +11,14 @@ class Desktop extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            windowType: 'Spotify',
+            windowType: 'InitialPopup',
             browserIsOpen: false,
             minesweeperIsOpen: false,
             mapsIsOpen: false,
             passwordsIsOpen: false,
             instagramIsOpen: false,
-            spotifyIsOpen: true,
+            spotifyIsOpen: false,
+            initialPopupIsOpen: true,
             numOfWindowsOpen: 1,
         }
         this.toggleWindow = this.toggleWindow.bind(this);
@@ -100,6 +101,22 @@ class Desktop extends React.Component {
             this.setState({
                 windowType: arg,
                 spotifyIsOpen: !this.state.spotifyIsOpen,
+            });
+        } 
+        else if (arg === 'InitialPopup') {
+            if (!this.state.initialPopupIsOpen) { 
+                this.setState({
+                    numOfWindowsOpen: this.state.numOfWindowsOpen+1,
+                })
+            } 
+            else {
+                this.setState({
+                    numOfWindowsOpen: this.state.numOfWindowsOpen-1,
+                })
+            }
+            this.setState({
+                windowType: arg,
+                initialPopupIsOpen: !this.state.initialPopupIsOpen,
             });
         } 
     }
@@ -185,6 +202,15 @@ class Desktop extends React.Component {
                         numOfWindowsOpen={this.state.numOfWindowsOpen}
                     ></Window>
                 )}
+                {this.state.initialPopupIsOpen && (
+                    <Window
+                        toggleWindow={this.toggleWindow}
+                        windowType={this.state.windowType}
+                        windowKind={'InitialPopup'}
+                        initialPopupIsOpen={this.state.initialPopupIsOpen}
+                        numOfWindowsOpen={this.state.numOfWindowsOpen}
+                    ></Window>
+                )}
                 <Dock
                    windowIsOpen={this.state.windowIsOpen}
                    toggleWindow={this.toggleWindow} 
@@ -195,6 +221,7 @@ class Desktop extends React.Component {
                    spotifyIsOpen={this.state.spotifyIsOpen}
                    mapsIsOpen={this.state.mapsIsOpen}
                    instagramIsOpen={this.state.instagramIsOpen}
+                   initialPopupIsOpen={this.state.initialPopupIsOpen}
                 ></Dock>
             </Background>
         )
