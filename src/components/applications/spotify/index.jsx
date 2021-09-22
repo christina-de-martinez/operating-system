@@ -92,10 +92,10 @@ function Spotify() {
                                     <PopularTitle>Guatevelas website</PopularTitle>
                                 </PopularMain>
                                 <Tech>
-                                    Designed & developed using React
+                                    Designed & developed using React (work in progress)
                                 </Tech>
                             </PopularItem>
-                            <PopularItem href="https://faithlife.com" target="_blank">
+                            <PopularItem href="https://faithlife.com" onTouchStart={() => window.location = 'https://faithlife.com'} target="_blank">
                                 <PopularMain>
                                     <Number>4</Number> 
                                     <PopularAlbumCover src="https://files.logoscdn.com/v1/files/52275001/assets/12132915/content.png?signature=eDikV0XxnAJ3ECW6cfWbb8XSDSk" alt="project name" />
