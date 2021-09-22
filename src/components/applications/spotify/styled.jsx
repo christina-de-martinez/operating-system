@@ -273,6 +273,7 @@ export const PopularHolder = styled.div`
 
 export const PopularItem = styled.a`
     width: 90%;
+    cursor: pointer;
     text-decoration: none;
     display: flex;
     flex-direction: row;
