@@ -9,7 +9,7 @@ class Dock extends React.Component {
         return (
             <DockContainer>
                 {console.log("%cWelcome to my portfolio site.","color: hotpink; background-color: #444; font-size: 24px; font-family: sans-serif")}
-                {console.log("%cIf you're here, it's probably because you're interested in what my code looks like. I'm happy to share!\nThis is a web app built with React. You can see the code here: https://github.com/christinahouck/operating-system \nAll rights reserved. If you're planning on using any part of this I'd love to know. Just send me a message.","color: #f1f1f1; background-color: #444;font-size: 14px; font-family: sans-serif")}")}
+                {console.log("%cIf you're here, it's probably because you're interested in what my code looks like. I'm happy to share!\nThis is a web app built with React. You can see the code here: https://github.com/christinahouck/operating-system \nAll rights reserved. If you're planning on using any part of this I'd love to know. Just send me a message.","color: #f1f1f1; background-color: #444;font-size: 14px; font-family: sans-serif")}
                 <DockParent>
                     {/* <AppIconAndDot>
                         <AppIcon className="appicon-blue" onClick={() => { this.props.toggleWindow('Browser') }}>
