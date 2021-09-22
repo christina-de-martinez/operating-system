@@ -9,6 +9,7 @@ import Minesweeper from '../applications/minesweeper/index';
 import Map from '../applications/map/index';
 import Spotify from '../applications/spotify/index';
 import Passwords from '../applications/passwords/index';
+import InitialPopup from '../applications/initialpopup/index';
 
 class Window extends React.Component {
     constructor(props) {
@@ -21,7 +22,37 @@ class Window extends React.Component {
         }
     }
     componentWillMount() {
-        if (window.innerWidth >= 1350) {
+        if (this.props.initialPopupIsOpen && (this.props.windowKind === 'InitialPopup')) {
+            if(window.innerWidth >= 1350) {
+                this.setState({
+                    xOffset: 500,
+                    yOffset: 300,
+                    width: '550px',
+                    height: '400px'
+                })
+            } else if (window.innerWidth >= 767) {
+                this.setState({
+                    xOffset: 200,
+                    yOffset: 200,
+                    width: '550px',
+                    height: '400px'
+                })
+            } else if (window.innerWidth >= 500) {
+                this.setState({
+                    xOffset: 50,
+                    yOffset: 70,
+                    width: '550px',
+                    height: '400px'
+                })
+            } else {
+                this.setState({
+                    xOffset: 0,
+                    yOffset: 80,
+                    width: '90%',
+                    height: '500px'
+                })
+            }
+        } else if (window.innerWidth >= 1350) {
             this.setState({
                 xOffset: 60 + (this.props.numOfWindowsOpen * Math.random() * (100 - 30) + 30),
                 yOffset: 50 + (this.props.numOfWindowsOpen * Math.random() * (100 - 30) + 30),
@@ -84,6 +115,10 @@ class Window extends React.Component {
                 { this.props.mapsIsOpen && <Map />}
                 { this.props.spotifyIsOpen && <Spotify />}
                 { this.props.passwordsIsOpen && <Passwords />}
+                { this.props.initialPopupIsOpen && <InitialPopup 
+                    toggleWindow={this.props.toggleWindow}
+                    windowKind={'InitialPopup'}
+                />}
             </WindowContainer>
             </Rnd>
         )
