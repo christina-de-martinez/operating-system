@@ -8,6 +8,9 @@ export const Container = styled.div`
 
 export const Background = styled.div`
     background-color: #FCC5D1;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
     margin: 0;
     position: absolute;
     z-index: 0;

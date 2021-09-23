@@ -20,8 +20,24 @@ class Desktop extends React.Component {
             spotifyIsOpen: false,
             initialPopupIsOpen: true,
             numOfWindowsOpen: 1,
+            backgroundIndex: 0,
         }
         this.toggleWindow = this.toggleWindow.bind(this);
+        this.toggleBackground = this.toggleBackground.bind(this);
+    }
+    toggleBackground(e) {
+        e.preventDefault();
+        console.log(this.state.backgroundIndex);
+        if (this.state.backgroundIndex >= 13) {
+            this.setState({
+                backgroundIndex: 0
+            })
+        } else {
+            let newBackgroundIndex = this.state.backgroundIndex + 1;
+            this.setState({
+                backgroundIndex: newBackgroundIndex
+            })
+        }
     }
     toggleWindow(arg) {
         if (arg === 'Browser') {
@@ -122,7 +138,7 @@ class Desktop extends React.Component {
     }
     render() {
         return (
-            <Background>
+            <Background onContextMenu={this.toggleBackground} className={`desktop-${this.state.backgroundIndex}`}>
                 <Menubar></Menubar>
                 <IconGrid>
                     {/* <Icon>
