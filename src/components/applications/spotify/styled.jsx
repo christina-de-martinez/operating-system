@@ -36,6 +36,7 @@ export const Sidebar = styled.div`
         align-items: center;
         justify-content: flex-start;
         max-width: 100%;
+        height: 30px;
     }
 `;
 
@@ -123,7 +124,6 @@ export const Main = styled.section`
     background-size: cover;
     background-position: 90% 70%;
     background-repeat: no-repeat;
-    height: 400px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -133,11 +133,28 @@ export const Main = styled.section`
         content: '';
         background: linear-gradient(to bottom, rgba(34, 34, 34, 0), rgba(34, 34, 34, 0.8));
         width: 100%;
-        height: 400px;
         position: absolute;
         left: 0;
         top: -200;
         z-index: -10;
+    }
+    @media (min-width: 768px) {
+        height: 400px;
+        &:after {
+            height: 400px;
+        }
+    }
+    @media (max-width: 767px) {
+        height: 300px;
+        &:after {
+            height: 300px;
+        }
+    }
+    @media (max-width: 500px) {
+        height: 200px;
+        &:after {
+            height: 200px;
+        }
     }
 `;
 
@@ -179,7 +196,12 @@ export const ArtistSection = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-end;
-    padding: 30px 20px;
+    @media (max-width: 500px) {
+        padding: 12px 20px;
+    }
+    @media (min-width: 501px) {
+        padding: 30px 20px;
+    }
 `;
 
 export const ArtistName = styled.h1`
@@ -250,6 +272,7 @@ export const PlaylistHeader = styled.h1`
     }
     @media (max-width: 500px) {
         font-size: 24px;
+        padding-bottom: 8px;
     }
 `;
 

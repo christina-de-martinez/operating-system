@@ -44,7 +44,7 @@ function Spotify() {
             <MainContainer>
                 <Main>
                     <ContactButtonSection>
-                        <ContactButton href="mailto:christina.m.codes@gmail.com">
+                        <ContactButton href="mailto:christina.m.codes@gmail.com" onGotPointerCapture={() => window.location = 'mailto:christina.m.codes@gmail.com'}>
                             CONTACT
                         </ContactButton>
                     </ContactButtonSection>
@@ -65,44 +65,44 @@ function Spotify() {
                             Projects I'm Proud Of
                         </PlaylistHeader>
                         <PopularHolder>
-                            <PopularItem href="https://logos.com" target="_blank">
+                            <PopularItem href="https://logos.com" target="_blank" onGotPointerCapture={() => window.location = 'https://logos.com'}>
                                 <PopularMain>
                                     <Number>1</Number> 
-                                    <PopularAlbumCover src="https://files.logoscdn.com/v1/files/49100469/assets/11604610/content.svg?signature=FofJp4WgItAg6JD4v99UZRzwntw" alt="project name" />
+                                    <PopularAlbumCover src="https://files.logoscdn.com/v1/files/49100469/assets/11604610/content.svg?signature=FofJp4WgItAg6JD4v99UZRzwntw" alt="Logos.com homepage" />
                                     <PopularTitle>Logos.com homepage</PopularTitle>
                                 </PopularMain>
                                 <Tech>
                                     Highly personalized using Liquid and JavaScript
                                 </Tech>
                             </PopularItem>
-                            <PopularItem href="https://www.instagram.com/p/CL5pnJTAn5G/" target="_blank">
+                            <PopularItem href="https://www.instagram.com/p/CL5pnJTAn5G/" target="_blank" onGotPointerCapture={() => window.location = 'https://www.instagram.com/p/CL5pnJTAn5G/'}>
                                 <PopularMain>
                                     <Number>2</Number> 
-                                    <PopularAlbumCover src="https://files.logoscdn.com/v1/files/49100469/assets/11604610/content.svg?signature=FofJp4WgItAg6JD4v99UZRzwntw" alt="project name" />
+                                    <PopularAlbumCover src="https://files.logoscdn.com/v1/files/49100469/assets/11604610/content.svg?signature=FofJp4WgItAg6JD4v99UZRzwntw" alt="Logos March Matchups" />
                                     <PopularTitle>Logos March Matchups</PopularTitle>
                                 </PopularMain>
                                 <Tech>
                                     Voting web app built with React
                                 </Tech>
                             </PopularItem>
-                            <PopularItem href="https://guatevelas.com" target="_blank">
+                            <PopularItem href="https://guatevelas.com" target="_blank" onGotPointerCapture={() => window.location = 'https://guatevelas.com'}>
                                 <PopularMain>
                                     <Number>3</Number> 
-                                    <PopularAlbumCover src="https://i.imgur.com/GWjMvBB.png" alt="project name" />
+                                    <PopularAlbumCover src="https://i.imgur.com/GWjMvBB.png" alt="Guatevelas website" />
                                     <PopularTitle>Guatevelas website</PopularTitle>
                                 </PopularMain>
                                 <Tech>
                                     Designed & developed using React (work in progress)
                                 </Tech>
                             </PopularItem>
-                            <PopularItem href="https://faithlife.com" onTouchStart={() => window.location = 'https://faithlife.com'} target="_blank">
+                            <PopularItem href="https://faithlife.com" onTouchStart={() => window.location = 'https://faithlife.com'} target="_blank" onGotPointerCapture={() => window.location = 'https://faithlife.com'}>
                                 <PopularMain>
                                     <Number>4</Number> 
-                                    <PopularAlbumCover src="https://files.logoscdn.com/v1/files/52275001/assets/12132915/content.png?signature=eDikV0XxnAJ3ECW6cfWbb8XSDSk" alt="project name" />
+                                    <PopularAlbumCover src="https://files.logoscdn.com/v1/files/52275001/assets/12132915/content.png?signature=eDikV0XxnAJ3ECW6cfWbb8XSDSk" alt="Faithlife.com unauthenticated homepage" />
                                     <PopularTitle>Faithlife.com unauthenticated homepage</PopularTitle>
                                 </PopularMain>
                                 <Tech>
-                                    Quick-turn project to rebuild Razor page for better top-of-funnel user capture
+                                    Built a Razor page for better top-of-funnel user capture
                                 </Tech>
                             </PopularItem>
                         </PopularHolder>
