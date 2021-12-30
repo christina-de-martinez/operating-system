@@ -1,8 +1,8 @@
 import React from 'react';
 import { DockContainer, DockParent, AppIconAndDot, Dot, AppIcon } from './styled';
-import { faGithubAlt, faJira, faSpotify } from '@fortawesome/free-brands-svg-icons'
+import { faGithubAlt, faSpotify } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHatWizard, faSmile, faGlobeEurope, faAt, faComments, faBomb, faCircle } from '@fortawesome/free-solid-svg-icons';
+import { faGlobeEurope, faAt, faComments, faCircle } from '@fortawesome/free-solid-svg-icons';
 
 class Dock extends React.Component {
     render() {
